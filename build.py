@@ -50,7 +50,7 @@ T={
  f=['שם מלא','שם העסק / המלון','טלפון / WhatsApp','אימייל','במה אפשר לעזור?','ספרו בכמה משפטים איפה העסק נמצא ומה היעד','שליחה','חוזרים אליכם תוך 24 שעות','תודה! קיבלתי את הפרטים ואחזור אליכם תוך 24 שעות.'],
  chips=['הקמת עסק חדש','הבראת עסק','ליווי שוטף','F&amp;B למלון','אירועים'],
  foot='© 2026 שני אחיאל · Hospitality &amp; F&amp;B Consulting · Berlin',foot2='ברלין · תל אביב',wa='דברו איתי בוואטסאפ',
- more='עוד מהמגזין',endE='רוצים לדבר על העסק שלכם?',endH='שיחת היכרות. בלי התחייבות.',back='חזרה לאתר',by='שני אחיאל',sending='שולח…',subj='פנייה חדשה מהאתר'),
+ more='עוד מהמגזין',yafo_cap='Yafo · ברלין',ev_e='אירועים',ev_h='ערבים שאנשים זוכרים.',ev_p='חתונות, מסיבות ואירועים שבועיים ב-Yafo – ואותה יכולת הפקה, לעסק או למלון שלכם.',st_e='על הבמה ובעיתונות',st_h='קול מוביל בגסטרונומיה של ברלין.',st_p='הרצאות, כנסים ושערי מגזינים – מהבמה של Frauenforum Foodservice ועד שער fizzz.',cap_key='הרצאה · Frauenforum Foodservice',cap_faces='Faces of Gastronomy · השקת ספר',cap_clip='מהעיתונות',author='על הכותבת',author_p='שני אחיאל הקימה וניהלה את Yafo ו-Shishi בברלין והובילה את מערך ה-F&amp;B של Selina ברלין. היא מלווה מסעדות ומלונות בהקמה, בהבראה ובניהול שוטף.',endE='רוצים לדבר על העסק שלכם?',endH='שיחת היכרות. בלי התחייבות.',back='חזרה לאתר',by='שני אחיאל',sending='שולח…',subj='פנייה חדשה מהאתר'),
 'en':dict(dir='ltr',title='Shani Ahiel | Hospitality &amp; F&amp;B Consulting for Restaurants and Hotels',desc='Shani Ahiel founded Yafo and Shishi in Berlin and led the full F&amp;B operation at Selina Berlin. Openings, turnarounds and outsourced food &amp; beverage management for restaurants and hotels.',
  brand='Shani Ahiel',nav=['About','Services','Method','Track record','Press','Journal'],cta='Book a call',toggle=('עב','../'),
  eyebrow='From Jaffa to Berlin · Restaurants · Hotels · Events',h1a='Restaurants that work.',h1b='And make money.',
@@ -82,7 +82,7 @@ T={
  f=['Full name','Business / hotel','Phone / WhatsApp','Email','How can we help?','In a few sentences: where is the business today, and where should it be?','Send','We reply within 24 hours','Thank you. We have your details and will be in touch within 24 hours.'],
  chips=['New opening','Turnaround','Ongoing partnership','Hotel F&amp;B','Events'],
  foot='© 2026 Shani Ahiel · Hospitality &amp; F&amp;B Consulting · Berlin',foot2='Berlin · Tel Aviv',wa='Chat on WhatsApp',
- more='More from the journal',endE='Want to talk about your business?',endH='An introductory call. No obligation.',back='Back to site',by='Shani Ahiel',sending='Sending…',subj='New website enquiry'),
+ more='More from the journal',yafo_cap='Yafo · Berlin',ev_e='Events',ev_h='Nights people remember.',ev_p='Weddings, parties and weekly events at Yafo – and the same production capability, for your business or hotel.',st_e='On stage &amp; in print',st_h='A leading voice in Berlin hospitality.',st_p='Talks, industry forums and magazine covers – from the Frauenforum Foodservice stage to the cover of fizzz.',cap_key='Keynote · Frauenforum Foodservice',cap_faces='Faces of Gastronomy · book launch',cap_clip='In print',author='About the author',author_p='Shani Ahiel founded and ran Yafo and Shishi in Berlin and led the F&amp;B operation at Selina Berlin. She advises restaurants and hotels on openings, turnarounds and ongoing operations.',endE='Want to talk about your business?',endH='An introductory call. No obligation.',back='Back to site',by='Shani Ahiel',sending='Sending…',subj='New website enquiry'),
 }
 QUOTES=[('“Yafo is one of the most fun dinners you can have in the city.”','The Infatuation','https://www.theinfatuation.com/berlin/reviews/yafo'),('“…brought a welcome spot of balagan to a buttoned-up corner of the city.”','The Berliner, 2023','https://www.the-berliner.com/food/berlins-hot-new-israeli-restaurants/'),('“…that high standard of service so rare to find in Berlin.”','Expats in Wonderland · on Shishi','https://www.expatsinwonderland.com/post/locally-sourced-israeli-food-shishi-kreuzberg')]
 OUTLETS=[('femtastics','https://femtastics.com/business/shani-ahiel'),('Mit Vergnügen','https://mitvergnuegen.com/tipps/yafo-2/'),('Creme Guides','https://www.cremeguides.com/berlin/yafo/'),('urbanite','https://www.urbanite.net/berlin/artikel/yafo-crossover-mit-herz/'),('nomyblog / fizzz','https://www.nomyblog.de/nomyblog/gastronomie/shani-ahiel/'),('Mux Mäuschen Wild','https://www.muxmaeuschenwild.de/magazin/kreuzberg-mit-shishi/'),('visitBerlin','https://www.visitberlin.de/de/yafo')]
@@ -135,7 +135,8 @@ def index(lang):
     quotes=''.join(f'<div class="q r d{k}"><blockquote>{qq}</blockquote>'+(f'<p class="he">{L["q"][k]}</p>' if L['q'][k] else '')+f'<cite>{src} <a href="{u}" target="_blank" rel="noopener">{L["read"]}</a></cite></div>' for k,(qq,src,u) in enumerate(QUOTES))
     outlets=''.join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n,u in OUTLETS)
     posts=''.join(f'<a class="post r d{k}" href="blog/{s}.html"><div class="ph"><img src="{A}{im}.webp" alt="" loading="lazy"><span class="tag">{tg[i]}</span></div><h3>{tt[i]}</h3><p>{ex[i]}</p><div class="meta">{mn} {"דק׳ קריאה" if lang=="he" else "min read"}</div></a>' for k,(s,im,tg,tt,ex,mn) in enumerate(ARTS))
-    gal=''.join(f'<img src="{A}{g}.webp" alt="" loading="lazy">' for g in ['chandelier','courtyard-night','crowd','guests','moment','candle']*2)
+    gal=''.join(f'<img src="{A}{g}.webp" alt="" loading="lazy">' for g in ['chandelier','bar-interior','courtyard-night','keynote-hall','crowd','guests','yafo-event','moment','shani-courtyard','candle','bar']*2)
+    clips_html=''.join(f'<img class="r" src="{A}{c}.webp" alt="" loading="lazy">' for c in ['press-fizzz-cover','press-stern','press-berliner-zeitung','press-french','press-hip-aber-herzlich','press-magazine-portrait','press-mitvergnuegen-1','press-spread-1','press-naechster-osten','press-just-do-it','press-mitvergnuegen-3','press-spread-2','press-mitvergnuegen-2'])
     F=L['f']; chips=''.join(f'<label><input type="checkbox" name="service" value="{c}"><span>{c}</span></label>' for c in L['chips'])
     return f'''<!doctype html><html lang="{lang}" dir="{L['dir']}"><head>{head(lang,L['title'],L['desc'],path,root,alt)}</head><body>
 {nav(L,root,'./' if lang=='he' else './',toggle)}
@@ -146,14 +147,20 @@ def index(lang):
 <div class="actions r in d3"><a href="#contact" class="btn solid">{L['b1']}</a><a href="#work" class="btn">{L['b2']}</a></div></div>
 <div class="hero-band"><div class="wrap">{hb}</div></div></header>
 <div class="marquee" aria-hidden="true"><div>{mq}</div></div>
-<section id="about"><div class="wrap intro"><div class="img r"><img data-par src="{A}bar.webp" alt="Yafo Berlin" loading="lazy"></div><div>
+<section id="about"><div class="wrap intro"><div class="img r"><img data-par src="{A}shani-portrait.webp" alt="{L['brand']}" loading="lazy"></div><div>
 <span class="eyebrow r">{L['ab_e']}</span><h2 class="r d1">{L['ab_h']}</h2><p class="r d1">{L['ab_p1']}</p><p class="r d2">{L['ab_p2']}</p><p class="r d2 creds">{L['ab_p3']}</p><div class="sig r d3">{L['by']}</div></div></div></section>
 <div class="stats"><div class="wrap">{stats}</div></div>
 <section id="services"><div class="wrap"><div class="svc-head"><div><span class="eyebrow r">{L['sv_e']}</span><h2 class="r d1">{L['sv_h']}</h2></div><p class="r d2">{L['sv_p']}</p></div><div class="svc">{svc}</div></div></section>
 <section class="band"><div class="wrap"><div class="img r"><img src="{A}table.webp" alt="" loading="lazy"></div><div><span class="eyebrow r">{L['bd_e']}</span><h2 class="r d1">{L['bd_h']}</h2><p class="r d2">{L['bd_p']}</p><div class="pts r d3">{pts}</div></div></div></section>
 <section id="method" class="method"><div class="wrap"><span class="eyebrow r">{L['md_e']}</span><h2 class="r d1">{L['md_h']}</h2><div class="steps">{steps}</div></div></section>
-<section id="work" class="work"><div class="wrap"><span class="eyebrow r">{L['tl_e']}</span><h2 class="r d1">{L['tl_h']}</h2><div class="tl">{tl}</div></div></section>
+<section id="events" class="events"><div class="wrap"><div class="svc-head"><div><span class="eyebrow r">{L['ev_e']}</span><h2 class="r d1">{L['ev_h']}</h2></div><p class="r d2">{L['ev_p']}</p></div>
+<div class="mosaic"><img class="r m1" src="{A}event-crowd.webp" alt="" loading="lazy"><img class="r d1 m2" src="{A}event-show.webp" alt="" loading="lazy"><img class="r d2 m3" src="{A}event-dance.webp" alt="" loading="lazy"><img class="r m4" src="{A}event-courtyard.webp" alt="" loading="lazy"><img class="r d1 m5" src="{A}shani-kitchen.webp" alt="" loading="lazy"></div></div></section>
+<section id="work" class="work"><div class="wrap"><span class="eyebrow r">{L['tl_e']}</span><h2 class="r d1">{L['tl_h']}</h2><div class="tl">{tl}</div>
+<div class="venue r"><figure><img src="{A}yafo-courtyard.webp" alt="Yafo" loading="lazy"></figure><figure><img src="{A}yafo-sign.webp" alt="Yafo" loading="lazy"></figure><figure><img src="{A}yafo-cinema-seats.webp" alt="Yafo" loading="lazy"></figure><span class="cap">{L['yafo_cap']}</span></div></div></section>
 <div class="gallery" aria-hidden="true"><div class="track">{gal}</div></div>
+<section id="stage" class="stage"><div class="wrap"><div class="svc-head"><div><span class="eyebrow r">{L['st_e']}</span><h2 class="r d1">{L['st_h']}</h2></div><p class="r d2">{L['st_p']}</p></div>
+<div class="stage-grid"><figure class="r big"><img src="{A}keynote.webp" alt="" loading="lazy"><figcaption>{L['cap_key']}</figcaption></figure><figure class="r d1"><img src="{A}frauenforum.webp" alt="" loading="lazy"><figcaption>Frauenforum Foodservice</figcaption></figure><figure class="r d2"><img src="{A}faces-of-gastronomy.webp" alt="" loading="lazy"><figcaption>{L['cap_faces']}</figcaption></figure></div>
+<span class="eyebrow r clip-e">{L['cap_clip']}</span><div class="clips">{clips_html}</div></div></section>
 <section id="press" class="press"><div class="wrap"><span class="eyebrow r">{L['pr_e']}</span><h2 class="r d1">{L['pr_h']}</h2><div class="quotes">{quotes}</div><div class="outlets r">{outlets}</div></div></section>
 <section id="journal"><div class="wrap"><div class="svc-head"><div><span class="eyebrow r">{L['jr_e']}</span><h2 class="r d1">{L['jr_h']}</h2></div><p class="r d2">{L['jr_p']}</p></div><div class="posts">{posts}</div></div></section>
 <section id="contact" class="contact"><div class="wrap"><div class="side"><span class="eyebrow r">{L['ct_e']}</span><h2 class="r d1">{L['ct_h']}</h2><p class="r d2">{L['ct_p']}</p>
@@ -170,6 +177,12 @@ def article(lang,k):
     path=('' if lang=='he' else 'en/')+f'blog/{s}.html'; alt=('en/' if lang=='he' else '')+f'blog/{s}.html'
     body=(HE_BODIES if lang=='he' else EN_BODIES)[s]
     body=body.replace('<p>','<p class="r">').replace('<h2>','<h2 class="r">').replace('<blockquote>','<blockquote class="r">').replace('<ul>','<ul class="r">')
+    FIG={'hotel-lobby-restaurant':['bar-interior','table'],'fnb-outsourcing-hotels':['event-courtyard','dining'],'restaurant-turnaround':['shani-kitchen','event-crowd']}[s]
+    parts=body.split('<h2 class="r">')
+    if len(parts)>3:
+        parts[2]=f'<figure class="afig r"><img src="{A}{FIG[0]}.webp" alt="" loading="lazy"></figure>'+parts[2] if False else parts[2]
+        body=parts[0]+'<h2 class="r">'+parts[1]+f'<figure class="afig r"><img src="{A}{FIG[0]}.webp" alt="" loading="lazy"></figure><h2 class="r">'+parts[2]+'<h2 class="r">'+parts[3]+f'<figure class="afig r"><img src="{A}{FIG[1]}.webp" alt="" loading="lazy"></figure><h2 class="r">'+'<h2 class="r">'.join(parts[4:])
+    body+=f'<div class="author r"><img src="{A}shani-portrait.webp" alt="" loading="lazy"><div><span class="eyebrow">{L["author"]}</span><p>{L["author_p"]}</p></div></div>'
     others=''.join(f'<a href="{a[0]}.html">{a[3][i]} <span class="arr">→</span></a>' for a in ARTS if a[0]!=s)
     home='../' if lang=='he' else '../'
     toggle=('../en/blog/' if lang=='he' else '../../blog/')+f'{s}.html'
