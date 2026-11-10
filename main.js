@@ -1,6 +1,6 @@
 const nav=document.querySelector('.nav'),bar=document.querySelector('.progress');
 addEventListener('scroll',()=>{const y=scrollY;nav&&nav.classList.toggle('scrolled',y>40);if(bar)bar.style.width=(y/(document.body.scrollHeight-innerHeight)*100)+'%';
-document.querySelectorAll('[data-par]').forEach(el=>{const r=el.parentElement.getBoundingClientRect();el.style.transform=`translateY(${(r.top)*-0.08}px)`})},{passive:true});
+document.querySelectorAll('[data-par]').forEach(el=>{const r=el.parentElement.getBoundingClientRect();const v=Math.max(-50,Math.min(50,(r.top+r.height/2-innerHeight/2)*-0.08));el.style.transform=`translateY(${v}px)`})},{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.r,.step').forEach(el=>io.observe(el));
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,to=+el.dataset.count,suf=el.dataset.suf||'';let t0=null;

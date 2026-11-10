@@ -194,3 +194,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .method{position:relative;overflow:hidden}
 .method:before{content:"";position:absolute;inset:0;background:url(assets/room.webp) center/cover;opacity:.12}
 .method .wrap{position:relative}
+.eyebrow{letter-spacing:.12em}
+.btn{letter-spacing:.04em;text-transform:none;font-size:1rem}
+.svc .for,.tl-row h3 small,.post .meta,.post .ph .tag,.chips p,.f input:focus+label,.q cite,.svc a.more{letter-spacing:.06em!important}
+.intro .img img{position:relative;top:-7%}
+@media(max-width:700px){.hero .scroll{display:none}.hero h1{font-size:3.4rem}.wa{bottom:16px;inset-inline-start:16px}}
