@@ -18,7 +18,6 @@ D={'he':dict(dir='rtl',brand='שני אחיאל',lang=('English','en/'),title='�
   ('shishi','2018 – 2022','Shishi','מסעדת שף','מסעדת שף שהקמתי, על עקרונות Farm to Table ובעבודה ישירה מול חקלאים בברנדנבורג. עיצוב פנים: Idan Gilony.'),
   ('amano','2019 – 2021','Amano','מלון · ברלין','Yafo התארחה במלון, והפכנו את הלובי למסעדה של ממש, עם מותג שפותח בתוכה.'),
   ('selina','2022 – 2023','Selina ברלין','מלון · מזון ומשקאות','הובלתי את כל מערך המזון והמשקאות במלון, לפי יעדי KPI ובמודל שותפות.'),
-  ('deli','','Yafo Deli','דלי','הדלי של Yafo, שמביא את הטעמים של המסעדה הביתה.'),
   ('opera','','Opera','מסעדה','לשני למלא – פרטים יתווספו')],
  soon='לשני למלא – תמונות יתווספו',photos='תמונות',
  sv_l='שירותים',sv_h='ארבעה מסלולים, <em>ושותפות אחת.</em>',sv_p='ארבעה מסלולי עבודה, לפי השלב שבו העסק נמצא. אפשר לבחור אחד או לשלב.',
@@ -59,9 +58,8 @@ D={'he':dict(dir='rtl',brand='שני אחיאל',lang=('English','en/'),title='�
   ('shishi','2018 – 2022','Shishi','Chef’s restaurant','The chef’s restaurant I founded, built on farm-to-table principles and working directly with Brandenburg farmers. Interior by Idan Gilony.'),
   ('amano','2019 – 2021','Amano','Hotel · Berlin','Yafo was hosted at the hotel, and we turned the lobby into a real restaurant with its own brand.'),
   ('selina','2022 – 2023','Selina Berlin','Hotel · F&amp;B','Led the hotel’s entire food &amp; beverage operation against KPI targets, in a partnership model.'),
-  ('deli','','Yafo Deli','Deli','Yafo’s deli, bringing the restaurant’s flavours home.'),
-  ('opera','','Opera','Restaurant','Details coming soon')],
- soon='Photos coming soon',photos='Photos',
+  ('opera','','Opera','Restaurant','For Shani to fill')],
+ soon='For Shani to fill – photos to be added',photos='Photos',
  sv_l='Services',sv_h='Four engagements, <em>one partnership.</em>',sv_p='Four ways to work together, depending on where the business is. Choose one or combine them.',
  for_l='For',
  svc=[('Opening a new business','From the idea to opening day.','Founders and owners before opening',['Business plan and planning','Branding and concept','Building operating standards'],'I want to open a business'),
@@ -84,7 +82,7 @@ D={'he':dict(dir='rtl',brand='שני אחיאל',lang=('English','en/'),title='�
  ct_l='Contact',ct_h='Let’s talk about <em>your business.</em>',ct_p='Tell me in a few sentences where the business is, and I will get back to you.',
  ft='Leave your details',fs='We’ll get back to you within 24 hours.',ph=['First and last name','e.g. a hotel in Berlin','+49 …','name@example.com','Where is the business today?'],
  note='By sending this form you agree that Shani may contact you by phone or email.')}
-VPH={'yafo':['yafo-room','yafo-toast','yafo-full','yafo-crowd','candle-table','bar-night','tasting','bar-gold','candle-toast','challah','neon'],'shishi':['longtable','curtain-shani','courtyard','street-crowd'],'amano':[],'selina':[],'deli':[],'opera':[]}
+VPH={'yafo':['yafo-room','yafo-toast','yafo-full','yafo-crowd','candle-table','bar-night','tasting','bar-gold','candle-toast','challah','bar-toast','neon'],'shishi':['longtable','curtain-shani','courtyard','street-crowd','courtyard-party','curtain-party','band-courtyard'],'amano':[],'selina':[],'opera':[]}
 VLOGO={'yafo':'yafo-w.png','shishi':'shishi-w.png','selina':'selina-w.png'}
 REEL1=['yafo-toast','courtyard','bar-gold','curtain-shani','yafo-full','candle-toast','street-crowd']
 REEL2=['longtable','tasting','yafo-crowd','bar-night','challah','candle-table','yafo-room']
@@ -104,7 +102,7 @@ def pic(n,root,sizes='100vw',alt='',eager=False,cls=''):
 def big(n,root): ws=META[n]['w'];return f'{root}img/{n}-{1280 if 1280 in ws else max(ws)}.webp'
 def head(lang,title,desc,path,alt,root):
     he,en=(path,alt) if lang=='he' else (alt,path)
-    return f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a0d26"><title>{title}</title><meta name="description" content="{desc}"><link rel="alternate" hreflang="he" href="{BASE}{he}"><link rel="alternate" hreflang="en" href="{BASE}{en}"><meta property="og:title" content="{title}"><meta property="og:image" content="{BASE}img/hero-d-1280.jpg"><link rel="icon" href="{root}../favicon.svg" type="image/svg+xml">{FONTS}<link rel="stylesheet" href="{root}v7.css?v=3">'
+    return f'<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0a0d26"><title>{title}</title><meta name="description" content="{desc}"><link rel="alternate" hreflang="he" href="{BASE}{he}"><link rel="alternate" hreflang="en" href="{BASE}{en}"><meta property="og:title" content="{title}"><meta property="og:image" content="{BASE}img/hero-d-1280.jpg"><link rel="icon" href="{root}../favicon.svg" type="image/svg+xml">{FONTS}<link rel="stylesheet" href="{root}v7.css?v=5">'
 def nav(lang,home,langhref):
     L=D[lang];items=''.join(f'<a href="{home}#{i}">{n}</a>' for i,n in L['nav'])
     return f'<header class="nav"><div class="w"><a class="brand" href="{home}"><b>{L["brand"]}</b><i>Hospitality &amp; F&amp;B · Berlin</i></a><nav class="links">{items}</nav><div class="r"><a class="lang" href="{langhref}">{L["lang"][0]}</a><a class="btn sm" href="{home}#contact">{L["cta1"]}</a><button class="burger" aria-label="menu"><span></span><span></span></button></div></div></header><div class="mmenu">{items}<a class="lang" href="{langhref}">{L["lang"][0]}</a></div>'
@@ -118,8 +116,8 @@ def jcard(lang,s,root,href):
     t,h,p=T3[lang]['arts'][s];return f'<a class="jc rv" href="{href}"><span class="ph">{pic(BLOGIMG[s],root,"(max-width:760px) 30vw, 340px")}</span><span class="t"><span class="k">{t}</span><b>{h}</b><span class="more">{D[lang]["jr_cta"]} {"←" if lang=="he" else "→"}</span></span></a>'
 def index(lang):
     L=D[lang];root='' if lang=='he' else '../';path='' if lang=='he' else 'en/';alt='en/' if lang=='he' else '';ar='←' if lang=='he' else '→'
-    ticker=' <i>·</i> '.join(['Yafo','Shishi','Amano','Selina Berlin','Yafo Deli'])
-    stats=''.join(f'<div class="st rv"><b><span class="pre">{p}</span><span data-count="{n}">{n}</span></b><span>{t}</span></div>' for n,p,t in L['stats'])
+    ticker=' <i>·</i> '.join(['Yafo','Shishi','Amano','Selina Berlin','Opera'])
+    stats=''.join(f'<div class="st rv"><b dir="ltr">'+ (f'<span class="pre">{p}</span>' if p else '') + f'<span class="num" data-count="{n}">{n}</span></b><span class="sl">{t}</span></div>' for n,p,t in L['stats'])
     reel=lambda arr:''.join(f'<figure>{pic(n,root,"260px")}</figure>'.replace('loading="lazy"','loading="eager"') for n in arr)
     vc=''
     for key,yr,name,kind,line in L['venues']:
@@ -128,7 +126,7 @@ def index(lang):
         if ph:
             g=json.dumps([[big(n,root),name] for n in ph])
             thumbs=''.join(f'<span>{pic(n,root,"60px")}</span>' for n in ph[1:4])
-            vc+=f'''<button type="button" class="venue has v-{key} rv" data-g='{H.escape(g)}' data-tilt><span class="vph" data-par>{pic(ph[0],root,"(max-width:760px) 92vw, 560px",name)}</span>{lg}<span class="vt"><span class="vk">{kind}</span>{y}<b>{name}</b><span class="vd">{line}</span><span class="vf"><span class="thumbs">{thumbs}</span><span class="cnt">{L['photos']} · {len(ph)} {ar}</span></span></span></button>'''
+            vc+=f'''<button type="button" class="venue has v-{key} rv" data-g='{H.escape(g)}' data-tilt><span class="vph" data-par>{pic(ph[0],root,"(max-width:760px) 92vw, 560px",name,eager=True)}</span>{lg}<span class="vt"><span class="vk">{kind}</span>{y}<b>{name}</b><span class="vd">{line}</span><span class="vf"><span class="thumbs">{thumbs}</span><span class="cnt">{L['photos']} · {len(ph)} {ar}</span></span></span></button>'''
         else:
             vc+=f'''<button type="button" class="venue plain v-{key} rv" data-g="[]" data-note="{L['soon']}" data-tilt>{lg}<span class="wm" aria-hidden="true">{name.split()[0]}</span><span class="soon">{L['soonk']}</span><span class="vt"><span class="vk">{kind}</span>{y}<b>{name}</b><span class="vd">{line}</span></span></button>'''
     svc=''.join(f'''<article class="tier rv" data-tilt><span class="tph">{pic(SVCIMG[k],root,"(max-width:760px) 92vw, 280px")}<span class="no">0{k+1}</span></span><span class="tb"><h3>{h}</h3><p class="tg">{p}</p><p class="for"><span>{L['for_l']}</span>{fo}</p><ul>'''+''.join(f'<li>{x}</li>' for x in ul)+f'</ul><a class="go" href="#contact">{go} <span>{ar}</span></a></span></article>' for k,(h,p,fo,ul,go) in enumerate(L['svc']))
@@ -170,7 +168,7 @@ def index(lang):
 <div class="f"><label for="p">{F[2]}</label><input id="p" name="phone" type="tel" required autocomplete="tel" dir="ltr" placeholder="{P[2]}"></div><div class="f"><label for="e">{F[3]}</label><input id="e" name="email" type="email" required autocomplete="email" dir="ltr" placeholder="{P[3]}"></div>
 <fieldset class="chips"><legend>{F[4]}</legend>{chips}</fieldset><div class="f full"><label for="m">{F[5]}</label><textarea id="m" name="message" placeholder="{P[4]}"></textarea></div></div>
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"><button class="btn full" type="submit">{F[6]}</button><p class="note">{L['note']}</p><p class="ok">{F[7]}</p></form></div></div></section>
-</main>{foot(lang,'./')}{wa(lang)}{LB}<script src="{root}v7.js?v=2" defer></script></body></html>'''
+</main>{foot(lang,'./')}{wa(lang)}{LB}<script src="{root}v7.js?v=3" defer></script></body></html>'''
 def article(lang,s):
     L=D[lang];L3=T3[lang];root='../' if lang=='he' else '../../';t,h,p=L3['arts'][s];mins,body=BODY[lang][s]
     path=('' if lang=='he' else 'en/')+f'blog/{s}.html';alt=('en/' if lang=='he' else '')+f'blog/{s}.html';langhref=('../en/blog/' if lang=='he' else '../../blog/')+f'{s}.html'
@@ -178,7 +176,7 @@ def article(lang,s):
     return f'''<!doctype html><html lang="{lang}" dir="{L['dir']}"><head>{head(lang,h+' · '+L['brand'],p,path,alt,root)}</head><body class="art"><div class="prog"></div>{nav(lang,'../',langhref)}<main>
 <header class="ahero"><div class="bg" data-hpar>{pic(BLOGIMG[s],root,'100vw',eager=True)}</div><span class="scrim"></span><div class="w"><p class="me">{t}</p><h1>{h}</h1><p class="meta">{L['brand']} · {mins} {L3['mins']}</p></div></header>
 <article class="prose">{body}<div class="byline">{pic('portrait',root,'56px')}<p>{L3['by']}</p></div><div class="actab"><h3>{L['ct_h']}</h3><p>{L['ct_p']}</p><a class="btn" href="../#contact">{L['cta1']}</a></div></article>
-<section class="sec soft"><div class="w"><div class="hd"><h2>{L3['more']}</h2></div><div class="jgrid two">{others}</div><p class="back"><a href="../">{L3['back']}</a></p></div></section></main>{foot(lang,'../')}{wa(lang)}<div class="grain" aria-hidden="true"></div><script src="{root}v7.js?v=2" defer></script></body></html>'''
+<section class="sec soft"><div class="w"><div class="hd"><h2>{L3['more']}</h2></div><div class="jgrid two">{others}</div><p class="back"><a href="../">{L3['back']}</a></p></div></section></main>{foot(lang,'../')}{wa(lang)}<div class="grain" aria-hidden="true"></div><script src="{root}v7.js?v=3" defer></script></body></html>'''
 os.makedirs('en/blog',exist_ok=True);os.makedirs('blog',exist_ok=True)
 open('index.html','w').write(index('he'));open('en/index.html','w').write(index('en'))
 for s in ARTS: open(f'blog/{s}.html','w').write(article('he',s));open(f'en/blog/{s}.html','w').write(article('en',s))
