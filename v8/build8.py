@@ -2,7 +2,7 @@ import json,urllib.parse,os,html as H
 src7=open('../v7/build7.py').read().split("\nFONTS=")[0].replace('img/meta.json','img/meta.json')
 ns={};exec(src7,ns)
 for k in ['T3','BODY','ARTS','META','WA_SVG','D','VPH','VLOGO','PRESS','BLOGIMG','WAN','MAIL']: globals()[k]=ns[k]
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v8/";CV='8a'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v8/";CV='8b'
 # draft wording (her own) for hero + profile
 X={'he':dict(me='שני אחיאל · יזמית ומנהלת בתחום האירוח, ברלין',h1='מסעדה שעובדת,<br><em>וגם מרוויחה.</em>',
   lead='אני עוזרת לבעלי מסעדות ויזמים להקים, לייצב ולפתח עסקי אירוח, על בסיס למעלה מעשור של ניהול והקמה של מסעדות, מותגים ואירועים.',
