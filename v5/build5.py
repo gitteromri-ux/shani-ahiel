@@ -9,27 +9,24 @@ WA_SVG=open('../v4/build4.py').read().split("WA_SVG='")[1].split("'\n")[0]
 # --- Shishi removed from narrative (pending clarification with Shani) ---
 SHISHI_P={'he':'<p>ב־Shishi עבדנו ישירות מול חקלאים. כשלאחד הספקים חסר חומר גלם, המנה פשוט ירדה מהתפריט באותו שבוע. הגמישות הזאת עולה כסף כשלא מתכננים אותה, וחוסכת כסף כשמתכננים.</p>',
           'en':'<p>At Shishi we worked directly with farmers. When a supplier was short of an ingredient, the dish simply came off the menu that week. That flexibility costs money if you do not plan for it, and saves money when you do.</p>'}
-for l in BODY:
-    m,b=BODY[l]['restaurant-turnaround']; BODY[l]['restaurant-turnaround']=(m,b.replace(SHISHI_P[l],''))
-    assert 'Shishi' not in ''.join(x[1] for x in BODY[l].values())
 T={'he':dict(
  eyebrow='ייעוץ מזון ומשקאות · מסעדות ומלונות',h1=['עסק שעובד,','<em>וגם מרוויח.</em>'],
  sub='שני אחיאל מלווה מסעדות ומלונות בהקמה, בהבראה ובניהול שוטף של מערכי מזון ומשקאות, מתוך ניסיון של הקמה וניהול מסעדות בברלין.',
  cta='לתיאום שיחת היכרות',cta2='כתבו עליה',
- nav=[('press','עיתונות'),('about','אודות'),('yafo','Yafo'),('services','שירותים'),('journal','מגזין'),('contact','יצירת קשר')],
+ nav=[('press','עיתונות'),('about','אודות'),('yafo','Yafo'),('shishi','Shishi'),('services','שירותים'),('journal','מגזין'),('contact','יצירת קשר')],
  strip='כתבו עליה',
  pr_l='עיתונות',pr_h='כתבו <em>עליה.</em>',pr_p='מבחר הכתבות שבחרה שני, לפי הדירוג שלה. הגזירים האמיתיים, מהעיתונים עצמם.',
  read='לכתבה המלאה',noread='גזיר מהארכיון של שני',more_pr='עוד כתבות',
- ab=['התחלתי את דרכי בשירות ובבר בתל אביב, ומשם עברתי לניהול אירועים. בברלין הקמתי את Yafo, מסעדה ובר עם אירועים שבועיים, שנעשתה לכתובת מוכרת של אירוח ישראלי בעיר.',
+ ab=['התחלתי את דרכי בשירות ובבר בתל אביב, ומשם עברתי לניהול אירועים. בברלין הקמתי את Yafo, מסעדה ובר עם אירועים שבועיים, ואחריה את Shishi, מסעדת שף שעבדה ישירות מול חקלאים.',
      'בהמשך עבדתי עם מלונות: במלון Amano הפכנו את הלובי למסעדה של ממש, וב־Selina ברלין הובלתי את כל מערך המזון והמשקאות, לפי יעדים מדידים ובמודל שותפות.',
      'כל מה שאני מציעה ללקוחות עשיתי קודם בעצמי, כבעלים וכמנהלת. היום אני מלווה בעלי מסעדות, יזמים ומלונות שרוצים עסק שעובד, וגם מרוויח.'],
  facts=['תואר ראשון בתקשורת ובמנהל עסקים','אזרחות ישראלית וגרמנית','עברית · אנגלית · גרמנית'],
  tag='בעלים, מנהלת ויועצת אירוח ומסעדנות',
- stats=[('6','כתבות מובילות בעיתונות'),('2016','Yafo נפתחה בברלין'),('3','שפות עבודה')],
+ stats=[('4','מסעדות ומלונות בברלין'),('6','כתבות מובילות בעיתונות'),('3','שפות עבודה')],
  yf_l='Yafo · ברלין',yf_h='המסעדה <em>שברלין עמדה בתור אליה.</em>',
  yf_p='בברלין הקמתי את Yafo, מסעדה ובר עם אירועים שבועיים, שנעשתה לכתובת מוכרת של אירוח ישראלי בעיר. שולחנות ארוכים, נרות, תקרה אדומה, ובר שבסוף הערב רוקדים עליו.',
  yf_q='״אנשים מחכים בתור לשולחן, גם באמצע השבוע.״',yf_qs='Süddeutsche Zeitung, 2017, על Yafo',
- cap_yafo='Yafo, ברלין',cap_neu='מהמסעדות של שני בברלין',cap_stage='Frauenforum Foodservice',
+ cap_yafo='Yafo, ברלין',cap_shishi='Shishi, ברלין',sh_l='Shishi · ברלין',sh_h='מסעדת השף <em>שהקמתי אחרי Yafo.</em>',sh_p='אחרי Yafo הקמתי את Shishi, מסעדת שף ברוח ״מהחווה לשולחן״, שעבדה ישירות מול חקלאים בברנדנבורג. שולחנות ארוכים לאור נרות, וילונות קטיפה, וחצר לבנים שמתמלאת בערבי קיץ.',cap_neu='מהמסעדות של שני בברלין',cap_stage='Frauenforum Foodservice',
  gal_l='מהארכיון',gal_h='רגעים <em>מהדרך</em>.',gal_p='ערבים, שולחנות ארוכים ואנשים. התמונות של שני, מהמסעדות שהקימה וניהלה.',
  st_l='על הבמה',st_h='מדברת <em>מהשטח</em>.',st_p='הרצאה בכנס Frauenforum Foodservice, מול קהל של אנשי מקצוע מעולם המזון והאירוח.',
  jr_cta='לקריאת המאמר',
@@ -37,23 +34,23 @@ T={'he':dict(
  ft='בקשה לשיחת היכרות',fs='נחזור אליכם תוך 24 שעות. הפרטים נשארים אצל שני בלבד.',ph=['שם פרטי ומשפחה','למשל: מסעדה בתל אביב','050-000-0000','name@example.com','מה המצב היום, ומה הייתם רוצים לשנות?'],
  note='בשליחת הטופס אתם מאשרים ששני תחזור אליכם בטלפון או במייל.',wa_lbl='וואטסאפ',
  a_cta_h='רוצים לבדוק את זה אצלכם?',a_cta_p='שיחת היכרות קצרה מספיקה כדי להבין מאיפה מתחילים.',menu='תפריט',
- by='שני אחיאל הקימה וניהלה את Yafo בברלין, והובילה את מערך המזון והמשקאות של Selina ברלין.',
- rows=[('Yafo','מסעדה ובר · ברלין','הקמתי וניהלתי מסעדה ובר עם אירועים שבועיים, שנעשתה לכתובת מוכרת של אירוח ישראלי בעיר.'),('Selina Berlin','מלון · ברלין','הובלתי את כל מערך המזון והמשקאות במלון, לפי יעדים מדידים ובמודל שותפות.'),('Amano','מלון · ברלין','הפכנו את לובי המלון למסעדה של ממש, ופיתחנו בתוכו את המותג.')]),
+ by='שני אחיאל הקימה וניהלה את Yafo ו־Shishi בברלין, והובילה את מערך המזון והמשקאות של Selina ברלין.',
+ rows=[('Yafo','מסעדה ובר · ברלין','הקמתי וניהלתי מסעדה ובר עם אירועים שבועיים, שנעשתה לכתובת מוכרת של אירוח ישראלי בעיר.'),('Selina Berlin','מלון · ברלין','הובלתי את כל מערך המזון והמשקאות במלון, לפי יעדים מדידים ובמודל שותפות.'),('Amano','מלון · ברלין','הפכנו את לובי המלון למסעדה של ממש, ופיתחנו בתוכו את המותג.'),('Shishi','מסעדת שף · ברלין','ברוח ״מהחווה לשולחן״, עם חומרי גלם ישירות מחקלאים בברנדנבורג.')]),
 'en':dict(
  eyebrow='Food &amp; beverage consulting · restaurants and hotels',h1=['A business that works,','<em>and makes money.</em>'],
  sub='Shani Ahiel advises restaurants and hotels on openings, turnarounds and ongoing food &amp; beverage operations, drawing on years of building and running restaurants in Berlin.',
  cta='Book an introductory call',cta2='In the press',
- nav=[('press','Press'),('about','About'),('yafo','Yafo'),('services','Services'),('journal','Journal'),('contact','Contact')],
+ nav=[('press','Press'),('about','About'),('yafo','Yafo'),('shishi','Shishi'),('services','Services'),('journal','Journal'),('contact','Contact')],
  strip='As featured in',
  pr_l='Press',pr_h='In <em>the press.</em>',pr_p='The coverage Shani picked, in her own ranking. The real clippings, straight from the papers.',
  read='Read the article',noread='Clipping from Shani’s archive',more_pr='More coverage',
  ab=T3['en']['ab'][:],facts=['B.A. in Communications and Business Administration','Israeli and German citizen','Hebrew · English · German'],
  tag='Owner, operator and hospitality consultant',
- stats=[('6','Top press features'),('2016','Yafo opens in Berlin'),('3','Working languages')],
+ stats=[('4','Berlin restaurants and hotels'),('6','Top press features'),('3','Working languages')],
  yf_l='Yafo · Berlin',yf_h='The restaurant <em>Berlin queued for.</em>',
  yf_p='In Berlin I founded Yafo, a restaurant and bar with weekly events that became a well-known address for Israeli hospitality in the city. Long tables, candlelight, a red ceiling, and a bar people end up dancing on.',
  yf_q='“Even on weeknights, people wait at the door for a table.”',yf_qs='Süddeutsche Zeitung, 2017, on Yafo',
- cap_yafo='Yafo, Berlin',cap_neu='From Shani’s restaurants in Berlin',cap_stage='Frauenforum Foodservice',
+ cap_yafo='Yafo, Berlin',cap_shishi='Shishi, Berlin',sh_l='Shishi · Berlin',sh_h='The chef’s restaurant <em>I founded after Yafo.</em>',sh_p='After Yafo I founded Shishi, a farm-to-table chef’s restaurant that worked directly with Brandenburg farmers. Long candlelit tables, velvet curtains, and a brick courtyard that fills up on summer nights.',cap_neu='From Shani’s restaurants in Berlin',cap_stage='Frauenforum Foodservice',
  gal_l='From the archive',gal_h='Moments <em>along the way</em>.',gal_p='Evenings, long tables and people. Shani’s own photos, from the restaurants she built and ran.',
  st_l='On stage',st_h='Speaking <em>from the floor</em>.',st_p='A talk at the Frauenforum Foodservice conference, in front of food and hospitality professionals.',
  jr_cta='Read the article',
@@ -61,9 +58,9 @@ T={'he':dict(
  ft='Introductory call request',fs='We’ll get back to you within 24 hours. Your details stay with Shani only.',ph=['First and last name','e.g. a hotel in Berlin','+49 …','name@example.com','Where is the business today, and what would you like to change?'],
  note='By sending this form you agree that Shani may contact you by phone or email.',wa_lbl='WhatsApp',
  a_cta_h='Want to look at this in your business?',a_cta_p='A short introductory call is enough to see where to start.',menu='Menu',
- by='Shani Ahiel founded and ran Yafo in Berlin, and led the food &amp; beverage operation at Selina Berlin.',
- rows=[('Yafo','Restaurant &amp; bar · Berlin','Founded and ran a restaurant and bar with weekly events that became a well-known address for Israeli hospitality in the city.'),('Selina Berlin','Hotel · Berlin','Led the hotel’s entire food &amp; beverage operation against measurable targets, in a partnership model.'),('Amano','Hotel · Berlin','Turned the hotel lobby into a true restaurant and developed the brand within it.')])}
-T['en']['ab'][0]='I started out on the floor and behind the bar in Tel Aviv, then moved into event management. In Berlin I founded Yafo, a restaurant and bar with weekly events that became a well-known address for Israeli hospitality in the city.'
+ by='Shani Ahiel founded and ran Yafo and Shishi in Berlin, and led the food &amp; beverage operation at Selina Berlin.',
+ rows=[('Yafo','Restaurant &amp; bar · Berlin','Founded and ran a restaurant and bar with weekly events that became a well-known address for Israeli hospitality in the city.'),('Selina Berlin','Hotel · Berlin','Led the hotel’s entire food &amp; beverage operation against measurable targets, in a partnership model.'),('Amano','Hotel · Berlin','Turned the hotel lobby into a true restaurant and developed the brand within it.'),('Shishi','Chef’s restaurant · Berlin','Farm to table, with produce sourced directly from Brandenburg farmers.')])}
+
 # press, Shani's ranking
 SZ='https://www.sueddeutsche.de/stil/samstagskueche-hip-aber-herzlich-1.3392048'
 HZ='https://www.haaretz.co.il/gallery/lifestyle/2016-09-01/ty-article/.premium/0000017f-db70-db5a-a57f-db7aadfe0000'
@@ -75,16 +72,16 @@ PRESS=[
  dict(k='sz',logo='sueddeutsche_zeitung.svg',img='p-sz',back=None,name='Süddeutsche Zeitung',link=SZ,
       h={'he':'„Hip, aber herzlich“','en':'„Hip, aber herzlich“'},sub={'he':'סצנת המסעדות הישראלית בברלין, ו־Yafo בלבה','en':'Berlin’s Israeli restaurant scene, with Yafo at its heart'},yr={'he':'פברואר 2017','en':'February 2017'}),
  dict(k='bz',logo='berliner_zeitung.svg',img='p-bz',back=None,name='Berliner Zeitung',link=None,
-      h={'he':'Berliner Zeitung','en':'Berliner Zeitung'},sub={'he':'כתבה ב־Berliner Zeitung','en':'Feature in the Berliner Zeitung'},yr=None),
+      h={'he':'„Shishi“ in Kreuzberg: Eine neue Oase für die queere Szene','en':'„Shishi“ in Kreuzberg: Eine neue Oase für die queere Szene'},sub={'he':'כתבה על Shishi','en':'A feature on Shishi'},yr=None),
  dict(k='tip',logo='tip_berlin.svg',img='p-tip',back='p-tip2',name='tip Berlin',link=None,
-      h={'he':'ביקורת מסעדה','en':'Restaurant review'},sub={'he':'ביקורת מלאה, חמש נקודות','en':'Full review, five points'},yr={'he':'גיליון 20/2018','en':'Issue 20/2018'}),
+      h={'he':'ביקורת על Shishi','en':'Review of Shishi'},sub={'he':'ביקורת מלאה, חמש נקודות','en':'Full review, five points'},yr={'he':'גיליון 20/2018','en':'Issue 20/2018'}),
  dict(k='haaretz',logo={'he':'haaretz_he_wordmark.svg','en':'haaretz_en_wordmark.svg'},img='bar-toast',back=None,name='Haaretz',link=HZ,
       h={'he':'הבר הברלינאי שמנסה לשחזר את האווירה של תל אביב','en':'“The Berlin bar trying to recreate the spirit of Tel Aviv”'},sub={'he':'על Yafo, במוסף סגנון החיים של הארץ','en':'On Yafo, in Haaretz’s lifestyle section (Hebrew)'},yr={'he':'ספטמבר 2016','en':'September 2016'}),
 ]
 STRIP=[('fizzz.png','fizzz'),('stern.svg','stern'),('sueddeutsche_zeitung.svg','Süddeutsche Zeitung'),('berliner_zeitung.svg','Berliner Zeitung'),('tip_berlin.svg','tip Berlin'),(None,'Haaretz')]
 MORE=[p for p in PRESS3 if p[0] in ('The Infatuation','The Berliner','femtastics','Mit Vergnügen','Creme Guides','urbanite')]
 # gallery: Omri's 14 picks in order; confident Yafo only where the room is identifiable
-GAL=[('curtain-shani',0),('tasting',0),('bar-night',0),('street-crowd',0),('yafo-toast',1),('yafo-room',1),('courtyard',0),('longtable',0),('yafo-crowd',1),('yafo-full',1),('candle-table',0),('bar-gold',0),('candle-toast',0),('challah',0)]
+GAL=[('curtain-shani',2),('tasting',1),('bar-night',1),('street-crowd',2),('yafo-toast',1),('yafo-room',1),('courtyard',2),('longtable',2),('yafo-crowd',1),('yafo-full',1),('candle-table',1),('bar-gold',1),('candle-toast',1),('challah',1)]
 SVCIMG=['yafo-set','bar-gold','tasting','street-crowd']
 BLOGIMG={'hotel-lobby-restaurant':'yafo-full','fnb-outsourcing-hotels':'bar-gold','restaurant-turnaround':'yafo-crowd'}
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500;700&family=Heebo:wght@400;500;600&display=swap" rel="stylesheet">'
@@ -147,8 +144,11 @@ def index(lang):
     stats=''.join(f'<div class="rv d{k}"><b data-count="{n}">{n}</b><span>{t}</span></div>' for k,(n,t) in enumerate(L['stats']))
     ymos=[('yafo-toast','a'),('grandma-wall','b'),('yafo-full','c'),('neon','d'),('yafo-crowd','e')]
     mosaic=''.join(f'<figure class="m-{c} rv d{k%4}" data-tilt="4">{pic(n,root,"(max-width:860px) 48vw, 26vw")}<figcaption>{L["cap_yafo"]}</figcaption></figure>' for k,(n,c) in enumerate(ymos))
+    smos=[('longtable','a'),('curtain-shani','c'),('courtyard','b'),('street-crowd','d')]
+    smosaic=''.join(f'<figure class="m-{c} rv d{k%4}" data-tilt="4">{pic(n,root,"(max-width:860px) 48vw, 26vw")}<figcaption>{L["cap_shishi"]}</figcaption></figure>' for k,(n,c) in enumerate(smos))
+    shishi=f'<section id="shishi" class="yafo shishi dark"><div class="bg" data-par>{pic("courtyard",root,"100vw")}</div><span class="scrim"></span><div class="w"><div class="top"><span class="eyebrow line rv">{L["sh_l"]}</span><h2 class="rv">{L["sh_h"]}</h2><p class="lead rv d1">{L["sh_p"]}</p></div><div class="mosaic">{smosaic}</div></div></section>'
     svc=''.join(f'<article class="scard rv d{k}" data-tilt="6"><span class="glare"></span><span class="ph">{pic(SVCIMG[k],root,"(max-width:860px) 84vw, 25vw")}<span class="n">0{k+1}</span></span><span class="t"><h3>{h}</h3><p>{p}</p><ul>'+''.join(f'<li>{x}</li>' for x in ul)+'</ul></span></article>' for k,(h,p,ul) in enumerate(L3['svc']))
-    gal=''.join(f'<figure>{pic(n,root,"(max-width:860px) 78vw, 34vw")}<figcaption>{L["cap_yafo"] if y else L["cap_neu"]}</figcaption></figure>' for n,y in GAL)
+    gal=''.join(f'<figure>{pic(n,root,"(max-width:860px) 78vw, 34vw")}<figcaption>{L["cap_yafo"] if y==1 else L["cap_shishi"] if y==2 else L["cap_neu"]}</figcaption></figure>' for n,y in GAL)
     rows=''.join(f'<div class="row rv"><h3>{n}</h3><span class="k">{t}</span><p>{d}</p></div>' for n,t,d in L['rows'])
     steps=''.join(f'<div class="step rv d{k}"><span class="n">0{k+1}</span><h3>{a}</h3><p>{b}</p></div>' for k,(a,b) in enumerate(L3['steps']))
     jc=''.join(jcard(lang,s,root,f'blog/{s}.html',k) for k,s in enumerate(ARTS))
@@ -162,7 +162,7 @@ def index(lang):
 <main>
 <section class="hero"><div class="layer"><div class="kb">{hero_pic}</div></div><span class="scrim"></span><span class="grain"></span>
 <div class="w"><div class="copy"><span class="eyebrow line">{L['eyebrow']}</span><h1>{h1}</h1><p class="sub">{L['sub']}</p><div class="ctas"><a class="btn3d" href="#contact">{L['cta']}</a><a class="btn3d ghost" href="#press">{L['cta2']}</a></div></div></div>
-<span class="hcap">{L['cap_neu']}</span><span class="scrollcue" aria-hidden="true"></span></section>
+<span class="hcap">{L['cap_shishi']}</span><span class="scrollcue" aria-hidden="true"></span></section>
 {strip(lang,root)}
 <section id="press" class="sec dark press"><span class="lights"></span><div class="w"><div class="head c rv"><span class="eyebrow line">{L['pr_l']}</span><h2>{L['pr_h']}</h2><p class="lead">{L['pr_p']}</p></div>
 {feat}<div class="pgrid">{rest}</div><div class="morepr rv"><span>{L['more_pr']}</span>{more}</div></div></section>
@@ -170,6 +170,7 @@ def index(lang):
 <div class="body"><span class="eyebrow line rv">{L3['ab_l']}</span><h2 class="rv">{L3['ab_h']}</h2><div class="rv d1 txt">{''.join(f'<p>{x}</p>' for x in L['ab'])}</div><div class="facts rv d2">{facts}</div></div></div>
 <div class="stats">{stats}</div></div></section>
 <section id="yafo" class="yafo dark"><div class="bg" data-par>{pic('yafo-room',root,'100vw')}</div><span class="scrim"></span><div class="w"><div class="top"><span class="eyebrow line rv">{L['yf_l']}</span><h2 class="rv">{L['yf_h']}</h2><p class="lead rv d1">{L['yf_p']}</p><blockquote class="rv d2">{L['yf_q']}<cite>{L['yf_qs']}</cite></blockquote></div><div class="mosaic">{mosaic}</div></div></section>
+{shishi}
 <section id="services" class="sec services"><div class="w"><div class="head c rv"><span class="eyebrow line">{L3['sv_l']}</span><h2>{L3['sv_h']}</h2><p class="lead">{L3['sv_p']}</p></div><div class="scards" data-dots="#d1">{svc}</div><div class="dots" id="d1"></div></div></section>
 <section class="gal dark"><div class="w head rv"><span class="eyebrow line">{L['gal_l']}</span><h2>{L['gal_h']}</h2><p class="lead">{L['gal_p']}</p></div><div class="track" dir="ltr">{gal}</div><div class="w galnav"><button type="button" class="gbtn" data-dir="-1" aria-label="prev">‹</button><button type="button" class="gbtn" data-dir="1" aria-label="next">›</button></div></section>
 <section id="record" class="sec record"><div class="w"><div class="grid"><div><div class="head rv"><span class="eyebrow line">{L3['rc_l']}</span><h2>{L3['rc_h']}</h2><p class="lead">{L3['rc_p']}</p></div><div class="rows">{rows}</div></div>
