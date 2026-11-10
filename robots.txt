@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gitteromri-ux.github.io/shani-ahiel/sitemap.xml
