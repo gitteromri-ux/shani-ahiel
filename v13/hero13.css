@@ -61,3 +61,6 @@
 }
 html.hero-rm .hs picture,html.hero-rm .hs.on picture{transform:none;transition:none}
 @media(prefers-reduced-motion:reduce){.hero .hs{transition:opacity .9s ease!important}}
+/* horizontal swipes on the hero change slides (not browser back/forward) */
+html{overscroll-behavior-x:none}
+.hero .hvis,.hero .hgrid{touch-action:pan-y}
