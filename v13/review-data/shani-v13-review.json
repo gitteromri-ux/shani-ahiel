@@ -1,7 +1,81 @@
 {
   "deck": "shani-v13",
-  "client": "",
-  "folds": {},
-  "order": [],
-  "updated": ""
+  "client": "4iwk06z6zr",
+  "folds": {
+    "hero": {
+      "title": "הירו — עמוד הפתיחה",
+      "comment": "בדיקת מערכת v13 11:41:25",
+      "status": ""
+    },
+    "profile": {
+      "title": "הסיפור",
+      "comment": "",
+      "status": ""
+    },
+    "services": {
+      "title": "השירותים",
+      "comment": "",
+      "status": ""
+    },
+    "erupt": {
+      "title": "ציטוט",
+      "comment": "",
+      "status": ""
+    },
+    "hotels": {
+      "title": "מיקור חוץ למלונות",
+      "comment": "",
+      "status": ""
+    },
+    "process": {
+      "title": "התהליך",
+      "comment": "",
+      "status": ""
+    },
+    "press": {
+      "title": "עיתונות",
+      "comment": "",
+      "status": ""
+    },
+    "venues": {
+      "title": "מקומות",
+      "comment": "",
+      "status": ""
+    },
+    "journal": {
+      "title": "המגזין",
+      "comment": "",
+      "status": ""
+    },
+    "contact": {
+      "title": "יצירת קשר",
+      "comment": "",
+      "status": ""
+    },
+    "stick": {
+      "title": "סרגל לידים",
+      "comment": "",
+      "status": ""
+    },
+    "wa": {
+      "title": "כפתור וואטסאפ",
+      "comment": "",
+      "status": ""
+    }
+  },
+  "order": [
+    "hero",
+    "profile",
+    "services",
+    "erupt",
+    "hotels",
+    "process",
+    "press",
+    "venues",
+    "journal",
+    "contact",
+    "stick",
+    "wa"
+  ],
+  "updated": "2026-11-11T09:41:29.122Z"
 }
