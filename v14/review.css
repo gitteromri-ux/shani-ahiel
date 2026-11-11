@@ -1,0 +1,290 @@
+/* v14 review-mode chrome, matched to the v46 deck format.
+   All visual rules that change the site are under html.review-on so the public view stays identical. */
+html.review-on{scroll-padding-top:86px}
+html.review-on body{padding-top:0;background:#06122B}
+
+.rv-slot{display:contents}
+html.review-on .rv-slot{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 380px;
+  gap:32px;
+  align-items:start;
+  padding:40px 24px;
+  border-top:1px solid rgba(255,255,255,.1);
+  background:#06122B;
+}
+html.review-on .rv-left{min-width:0}
+html.review-on .rv-head{margin:0 0 18px}
+html.review-on .rv-num{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:40px;
+  line-height:1;
+  color:#8AD2FF;
+  margin:0 0 8px;
+}
+html.review-on .rv-title{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:32px;
+  line-height:1.15;
+  color:#F3EBDD;
+  margin:0;
+}
+html.review-on .rv-fold{
+  min-width:0;
+  background:var(--ivory,#faf7f0);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  position:relative;
+}
+html.review-on .rv-fold > .hero,
+html.review-on .rv-fold > .sec,
+html.review-on .rv-fold > .erupt{border-radius:0}
+
+.rv-badge{display:none}
+
+.rv-card{display:none}
+html.review-on .rv-card{
+  display:block;
+  position:sticky;
+  top:90px;
+  align-self:start;
+  background:rgba(255,255,255,.05);
+  border:0;
+  border-radius:18px;
+  padding:22px;
+  color:#F3EBDD;
+  font-family:Heebo,system-ui,sans-serif;
+  direction:rtl;
+  text-align:right;
+}
+html[lang="en"].review-on .rv-card{
+  direction:ltr;
+  text-align:left;
+}
+.rv-card h3{display:none}
+.rv-card .rv-k{
+  display:block;
+  font-size:15px;
+  letter-spacing:.08em;
+  color:#9DB3D6;
+  margin-bottom:12px;
+}
+.rv-card textarea{
+  width:100%;
+  min-height:220px;
+  resize:vertical;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;
+  background:rgba(6,18,43,.7);
+  color:#F3EBDD;
+  font:300 18px/1.5 Heebo,system-ui,sans-serif;
+  padding:14px;
+  box-sizing:border-box;
+}
+.rv-card textarea:focus{
+  outline:none;
+  border-color:#006EFF;
+  box-shadow:0 0 0 3px rgba(0,110,255,.25);
+}
+.rv-card textarea::placeholder{color:#8aa0c0}
+.rv-status{
+  display:flex;
+  gap:6px;
+  margin:12px 0 8px;
+  flex-wrap:wrap;
+}
+.rv-status button{
+  flex:1;
+  min-width:76px;
+  font:500 14px/1 Heebo,system-ui,sans-serif;
+  padding:10px 8px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+  color:#D6DEEC;
+  cursor:pointer;
+}
+.rv-status button[aria-pressed="true"][data-s="in"]{
+  background:#1f6b4a;border-color:#3ad89a;color:#fff;
+}
+.rv-status button[aria-pressed="true"][data-s="out"]{
+  background:#6b1f2a;border-color:#ff8a9a;color:#fff;
+}
+.rv-status button[aria-pressed="true"][data-s="fix"]{
+  background:#F6DC8C;border-color:#F6DC8C;color:#06142a;
+}
+.rv-saved{font-size:14px;color:#8AD2FF;margin-top:10px;min-height:18px}
+
+#rv-top{display:none}
+html.review-on #rv-top{
+  display:flex;
+  position:sticky;
+  top:0;
+  z-index:80;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:14px 24px;
+  background:rgba(6,18,43,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  color:#F3EBDD;
+  font-family:Heebo,system-ui,sans-serif;
+  direction:rtl;
+}
+html[lang="en"].review-on #rv-top{direction:ltr}
+#rv-top .rv-brand{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  margin-inline-end:auto;
+  color:#F3EBDD;
+}
+#rv-top .rv-btn{
+  font:400 16px/1 Heebo,system-ui,sans-serif;
+  padding:12px 20px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+}
+#rv-top .rv-btn.p{
+  background:#006EFF;
+  border-color:#006EFF;
+  box-shadow:0 0 30px rgba(0,110,255,.5);
+}
+#rv-top .rv-sync{font-size:14px;color:#8AD2FF;min-width:8em}
+
+#rv-lead{display:none}
+html.review-on #rv-lead{
+  display:block;
+  padding:18px 24px 8px;
+  max-width:1000px;
+  font:300 20px/1.55 Heebo,system-ui,sans-serif;
+  color:#9DB3D6;
+  background:#06122B;
+  direction:rtl;
+}
+html[lang="en"].review-on #rv-lead{direction:ltr}
+
+#rv-list{
+  display:none;
+  position:fixed;
+  top:86px;
+  inset-inline-start:16px;
+  width:min(380px,calc(100vw - 32px));
+  max-height:calc(100vh - 110px);
+  overflow:auto;
+  z-index:85;
+  background:#08152D;
+  color:#F3EBDD;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:16px;
+  direction:rtl;
+  font-family:Heebo,system-ui,sans-serif;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+html[lang="en"] #rv-list{direction:ltr}
+#rv-list.open{display:block}
+#rv-list h2{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  margin:0 0 8px;
+}
+#rv-list .rv-empty{color:#9DB3D6;font-size:14px;line-height:1.5}
+.rv-li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 8px;
+  border-top:1px solid rgba(255,255,255,.08);
+  cursor:grab;
+}
+.rv-li:active{cursor:grabbing}
+.rv-li .n{
+  color:#8AD2FF;
+  font:600 18px/1 Fraunces,Georgia,serif;
+  font-style:italic;
+  min-width:1.6em;
+}
+.rv-li .t{flex:1;font-size:15px}
+.rv-li .mv{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.rv-li .mv button{
+  border:0;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+  width:28px;
+  height:22px;
+  font-size:12px;
+}
+
+#rv-send{display:none}
+html.review-on #rv-send{
+  display:block;
+  position:fixed;
+  inset-inline-end:24px;
+  bottom:24px;
+  z-index:82;
+  font:400 16px Heebo,system-ui,sans-serif;
+  padding:12px 20px;
+  border-radius:12px;
+  border:1px solid #006EFF;
+  background:#006EFF;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(0,110,255,.5);
+}
+
+html.review-on:not(.review-hide) .fa-wa,
+html.review-on:not(.review-hide) aside.stick{display:none !important}
+
+html.review-on.review-hide .rv-slot,
+html.review-on.review-hide .rv-left,
+html.review-on.review-hide .rv-fold{display:contents;padding:0;border:0;background:transparent;box-shadow:none;overflow:visible;border-radius:0}
+html.review-on.review-hide .rv-card,
+html.review-on.review-hide .rv-head,
+html.review-on.review-hide .rv-badge,
+html.review-on.review-hide #rv-list,
+html.review-on.review-hide #rv-lead,
+html.review-on.review-hide #rv-send{display:none !important}
+html.review-on.review-hide #rv-top{opacity:.92}
+html.review-on.review-hide{scroll-padding-top:0}
+html.review-on.review-hide body{background:transparent}
+
+@media (max-width:900px){
+  html.review-on .rv-slot{
+    grid-template-columns:1fr;
+    padding:28px 16px 32px;
+    gap:18px;
+  }
+  html.review-on .rv-card{position:static}
+  html.review-on .rv-fold{border-radius:14px}
+  html.review-on .rv-num{font-size:32px}
+  html.review-on .rv-title{font-size:26px}
+  #rv-top .rv-brand{display:none}
+  #rv-top{padding:14px 16px;gap:10px}
+  #rv-lead{padding:14px 16px 0;font-size:16px}
+  .rv-card textarea{min-height:180px}
+  html.review-on #rv-send{display:none !important}
+  html.review-on .hero,html.review-on .sec,html.review-on .erupt{scroll-margin-top:130px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.review-on *{transition:none !important}
+}
