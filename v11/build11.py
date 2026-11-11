@@ -21,7 +21,7 @@ D['en']['svc']=[
 X['he']['sv_h']=D['he']['sv_h'];X['en']['sv_h']=D['en']['sv_h']
 
 META=json.load(open('img/meta.json'))
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11a'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11b'
 VPH['shishi']=[n for n in VPH['shishi'] if not n.startswith('band')]
 # dark venue marks for the light catalog
 VLOGO={'yafo':'yafo.png','shishi':'shishi.png','selina':'selina.png'}
@@ -156,19 +156,19 @@ def index(lang):
  <div class="hcaps" hidden>{json.dumps(HCAP[lang],ensure_ascii=False)}</div>
 </header>
 <section class="sec paper profile" id="profile"><div class="w">
- <div class="phd glass">{eb(Y['pf_l'])}<h2 class="rv">{Y['pf_h']}</h2><p class="big rv">{Y['pf_lead']}</p><div class="facts rv">{facts}</div></div>
+ <div class="phd">{eb(Y['pf_l'])}<h2 class="rv">{Y['pf_h']}</h2><p class="big rv">{Y['pf_lead']}</p><div class="facts rv">{facts}</div></div>
  <div class="tabs" role="tablist"><button class="on" data-t="0">{V['tab'][0]}</button><button data-t="1">{V['tab'][1]}</button></div>
  <div class="tp on" data-p="0">{slider(pcards,'s-prof','',V['tab'][0])}</div>
  <div class="tp" data-p="1">{slider(tcards,'s-tl','',V['tab'][1])}</div>
  <div class="rail"><div class="mhd">{eb(V['gal'])}<h2 class="rv">{Y['mo_h']}</h2><p class="rv">{Y['mo_p']}</p></div>{slider(mos,'s-mo','',Y['mo_h'])}</div>
 </div></section>
-<section class="sec ivory services" id="services"><div class="w"><div class="hd glass">{eb(Y['sv_l'])}<h2 class="rv">{Y['sv_h']}</h2><p class="sub rv">{L['sv_p']}</p></div>{slider(svc,'s-svc','grid4',Y['sv_l'])}</div></section>
+<section class="sec ivory services" id="services"><div class="w"><div class="hd">{eb(Y['sv_l'])}<h2 class="rv">{Y['sv_h']}</h2><p class="sub rv">{L['sv_p']}</p></div>{slider(svc,'s-svc','grid4',Y['sv_l'])}</div></section>
 <section class="erupt" aria-label="quote"><div class="eruph">{pic('yafo-full',root,"100vw")}</div><div class="w"><blockquote class="glass eq"><p>{L["quote"]}</p><cite>{L["quote_s"]}</cite></blockquote></div></section>
 <section class="sec sand hotels"><div class="hrow w"><figure class="hv" data-par>{pic('tasting',root,"(max-width:900px) 100vw, 50vw")}</figure><div class="hti glass">{eb(L['os_l'])}<h2 class="rv">{L['os_h']}</h2><p class="rv">{L['os_p']}</p><ul class="rv">{ospts}</ul><a class="btn mag" href="#contact"><span>{L['cta1']}</span></a></div></div></section>
 <section class="sec ivory process" id="process"><div class="w prc"><figure class="prv" data-par>{pic('bar-gold',root,"(max-width:900px) 92vw, 520px")}</figure><div class="prt glass">{eb(Y['hw_l'])}<h2 class="rv">{Y['hw_h']}</h2>{slider(steps,'s-st','list',Y['hw_l']).replace('<div class="trk"','<ol class="trk"').replace('</div><div class="slc-ui">','</ol><div class="slc-ui">',1)}<a class="btn mag" href="#contact"><span>{L['cta1']}</span></a></div></div></section>
-<section id="press" class="sec paper press"><div class="w strip glass">{eb(L['strip'])}<div class="plogs">{plogs}</div></div></section>
-<section class="sec sand venues" id="venues"><div class="w"><div class="hd glass">{eb(Y['vn_l'])}<h2 class="rv">{Y['vn_h']}</h2><p class="sub rv">{Y['vn_p']}</p></div></div>{slider(vc,'s-ven','',Y['vn_l'])}</section>
-<section class="sec ivory journal" id="journal"><div class="w"><div class="hd glass">{eb(L['jr_l'])}<h2 class="rv">{L['jr_h']}</h2></div>{slider(jc,'s-jr','grid3',L['jr_h'])}</div></section>
+<section id="press" class="sec paper press"><div class="w strip">{eb(L['strip'])}<div class="plogs">{plogs}</div></div></section>
+<section class="sec sand venues" id="venues"><div class="w"><div class="hd">{eb(Y['vn_l'])}<h2 class="rv">{Y['vn_h']}</h2><p class="sub rv">{Y['vn_p']}</p></div></div>{slider(vc,'s-ven','',Y['vn_l'])}</section>
+<section class="sec ivory journal" id="journal"><div class="w"><div class="hd">{eb(L['jr_l'])}<h2 class="rv">{L['jr_h']}</h2></div>{slider(jc,'s-jr','grid3',L['jr_h'])}</div></section>
 <section id="contact" class="sec paper contact"><div class="crow w"><figure class="cv" data-par>{pic('courtyard',root,"(max-width:900px) 100vw, 45vw")}</figure><div class="cbox glass">{eb(L['ct_l'])}<h2 class="rv">{L['ct_h']}</h2><p class="sub">{L['ct_p']}</p><div class="cta2"><a class="btn ghost sm" href="mailto:{MAIL}">{MAIL}</a><a class="btn ghost sm" href="tel:+{WAN}" dir="ltr">054-6644489</a></div>
 <div class="form"><p class="ft">{L['ft']}</p><p class="fs">{L['fs']}</p><form id="lead" data-sending="{T3[lang]['sending']}" data-subj="{T3[lang]['subj']}"><div class="fg">
 <div class="f"><label for="n">{F[0]}</label><input id="n" name="name" required autocomplete="name" placeholder="{P[0]}"></div><div class="f"><label for="b">{F[1]}</label><input id="b" name="business" autocomplete="organization" placeholder="{P[1]}"></div>
