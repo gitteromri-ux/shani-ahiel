@@ -23,13 +23,79 @@
     wa:{he:'כפתור וואטסאפ',en:'WhatsApp button'}
   };
 
+  var I18N={
+    he:{
+      brand:'סקירת האתר, מקטע־מקטע',
+      hide:'הסתר סקירה',
+      show:'הצג סקירה',
+      finals:'רשימת הסופיים',
+      send:'שלחי את ההערות',
+      sending:'שולחת…',
+      sent:'נשלח',
+      label:function(n){return 'הערה על מקטע '+n},
+      placeholder:'הקלידי כאן. נשמר תוך כדי הקלדה.',
+      inn:'בפנים', out:'בחוץ', fix:'תיקון',
+      saved:'נשמר',
+      savedGh:'נשמר ב-GitHub הציבורי',
+      savedLocal:'נשמר במכשיר זה',
+      saving:'שומר…',
+      listTitle:'רשימת הסופיים',
+      listLead:'מקטעים שסומנו «בפנים», לפי הסדר שבחרת. אפשר לגרור או להזיז עם החיצים. הרשימה נשמרת אוטומטית.',
+      listEmpty:'עוד אין מקטעים בפנים. סמני «בפנים» ליד מקטע כדי להוסיף אותו לרשימת הסופיים. אפשר לשנות את הסדר כאן.',
+      chromeNote:function(title){return title+' — רכיב קבוע באתר (לא מקטע). ההערה כאן מתייחסת אליו.';},
+      statusAria:'סטטוס המקטע',
+      up:'למעלה', down:'למטה',
+      connecting:'מתחבר לשמירה…',
+      noKey:'נשמר במכשיר (הוסיפי מפתח לכתובת לסינכרון)',
+      loaded:'נטען מהשמירה',
+      local:'עובד מקומית',
+      localNoKey:'עובד מקומית (אין מפתח בכתובת)',
+      notServer:'לא נשמר בשרת — נשמר במכשיר',
+      notServerNoKey:'נשמר במכשיר (אין מפתח סקירה בכתובת)',
+      mailSubject:'הערות לסקירת האתר של שני, v12',
+      lead:'ליד כל מקטע יש תיבת הערה שנשמרת תוך כדי הקלדה. אפשר לסמן בפנים, בחוץ או תיקון. כשסיימת, לחצי על «שלחי את ההערות».'
+    },
+    en:{
+      brand:'Site review, section by section',
+      hide:'Hide review',
+      show:'Show review',
+      finals:'Final list',
+      send:'Send my comments',
+      sending:'Sending…',
+      sent:'Sent',
+      label:function(n){return 'Your comment on section '+n},
+      placeholder:'Type here. It saves as you type.',
+      inn:'In', out:'Out', fix:'Fix',
+      saved:'Saved',
+      savedGh:'Saved to the public GitHub repo',
+      savedLocal:'Saved on this device',
+      saving:'Saving…',
+      listTitle:'Final list',
+      listLead:'Sections marked In, in the order you chose. Drag or use the arrows. The list saves automatically.',
+      listEmpty:'No sections in the final list yet. Mark a section In to add it. You can change the order here.',
+      chromeNote:function(title){return title+' — a fixed site control (not a section). The note here is about that control.';},
+      statusAria:'Section status',
+      up:'Move up', down:'Move down',
+      connecting:'Connecting to save…',
+      noKey:'Saved on this device (add the review key to the URL to sync)',
+      loaded:'Loaded from saved review',
+      local:'Working locally',
+      localNoKey:'Working locally (no key in the URL)',
+      notServer:'Not saved on the server — saved on this device',
+      notServerNoKey:'Saved on this device (no review key in the URL)',
+      mailSubject:'Comments on Shani\'s site review, v12',
+      lead:'Next to every section there is a box for your comments; it saves as you type. You can mark a section In, Out or Fix. When you are done, press Send my comments.'
+    }
+  };
+  var tx=I18N[lang]||I18N.he;
+
   var MAIN_IDS=['hero','profile','services','erupt','hotels','process','press','venues','journal','contact'];
   var CHROME_IDS=['stick','wa'];
   var DEFAULT_ORDER=MAIN_IDS.concat(CHROME_IDS);
 
   function titleOf(id){
     var t=TITLES[id];
-    return t?(t.he):id;
+    return t?(t[lang]||t.he):id;
   }
 
   document.documentElement.classList.add('review-on');
@@ -89,6 +155,19 @@
     return document.getElementById(id);
   }
 
+  function makeHead(id){
+    var head=document.createElement('div');
+    head.className='rv-head';
+    var num=document.createElement('div');
+    num.className='rv-num';
+    var title=document.createElement('h2');
+    title.className='rv-title';
+    title.textContent=titleOf(id);
+    head.appendChild(num);
+    head.appendChild(title);
+    return head;
+  }
+
   function wrapMains(){
     MAIN_IDS.forEach(function(id){
       var el=foldEl(id);
@@ -97,14 +176,14 @@
       slot.className='rv-slot';
       slot.dataset.fold=id;
       el.parentNode.insertBefore(slot,el);
+      var left=document.createElement('div');
+      left.className='rv-left';
+      left.appendChild(makeHead(id));
       var hold=document.createElement('div');
       hold.className='rv-fold';
-      var badge=document.createElement('div');
-      badge.className='rv-badge';
-      badge.setAttribute('aria-hidden','true');
-      hold.appendChild(badge);
       hold.appendChild(el);
-      slot.appendChild(hold);
+      left.appendChild(hold);
+      slot.appendChild(left);
       slot.appendChild(makeCard(id));
     });
 
@@ -115,17 +194,17 @@
       var slot=document.createElement('div');
       slot.className='rv-slot rv-chrome';
       slot.dataset.fold=id;
+      var left=document.createElement('div');
+      left.className='rv-left';
+      left.appendChild(makeHead(id));
       var hold=document.createElement('div');
       hold.className='rv-fold';
-      var badge=document.createElement('div');
-      badge.className='rv-badge';
-      badge.setAttribute('aria-hidden','true');
-      hold.appendChild(badge);
       var lab=document.createElement('div');
       lab.style.cssText='padding:48px 28px;font:400 22px/1.4 Heebo,system-ui,sans-serif;color:#1a1a1a;background:#faf7f0';
-      lab.textContent=titleOf(id)+' — רכיב קבוע באתר (לא מקטע). ההערה כאן מתייחסת אליו.';
+      lab.textContent=tx.chromeNote(titleOf(id));
       hold.appendChild(lab);
-      slot.appendChild(hold);
+      left.appendChild(hold);
+      slot.appendChild(left);
       slot.appendChild(makeCard(id));
       if(host){
         var after=host.querySelector('.rv-slot.rv-chrome:last-of-type')||contactSlot;
@@ -142,36 +221,39 @@
     var f=state.folds[id]||{comment:'',status:''};
     var n=DEFAULT_ORDER.indexOf(id)+1;
     card.innerHTML=
-      '<h3></h3>'+
       '<label class="rv-k"></label>'+
-      '<textarea placeholder="הקלידי כאן. נשמר תוך כדי הקלדה."></textarea>'+
-      '<div class="rv-status" role="group" aria-label="סטטוס המקטע">'+
-        '<button type="button" data-s="in">בפנים</button>'+
-        '<button type="button" data-s="out">בחוץ</button>'+
-        '<button type="button" data-s="fix">תיקון</button>'+
-      '</div>'+
+      '<textarea></textarea>'+
+      '<div class="rv-status" role="group"></div>'+
       '<div class="rv-saved"></div>';
-    card.querySelector('h3').textContent=n+'. '+titleOf(id);
-    card.querySelector('label').textContent='הערה על מקטע '+n;
-    card.querySelector('label').setAttribute('for','rv-c-'+id);
+    var lab=card.querySelector('label');
+    lab.textContent=tx.label(n);
+    lab.setAttribute('for','rv-c-'+id);
     var ta=card.querySelector('textarea');
     ta.id='rv-c-'+id;
+    ta.placeholder=tx.placeholder;
     ta.value=f.comment||'';
     ta.addEventListener('input',function(){
       state.folds[id].comment=ta.value;
-      card.querySelector('.rv-saved').textContent='שומר…';
+      card.querySelector('.rv-saved').textContent=tx.saving;
       queueSave();
     });
-    card.querySelectorAll('.rv-status button').forEach(function(btn){
-      btn.setAttribute('aria-pressed', (f.status===btn.dataset.s)?'true':'false');
+    var group=card.querySelector('.rv-status');
+    group.setAttribute('aria-label',tx.statusAria);
+    [['in',tx.inn],['out',tx.out],['fix',tx.fix]].forEach(function(pair){
+      var btn=document.createElement('button');
+      btn.type='button';
+      btn.dataset.s=pair[0];
+      btn.textContent=pair[1];
+      btn.setAttribute('aria-pressed',(f.status===pair[0])?'true':'false');
       btn.addEventListener('click',function(){
         var next=state.folds[id].status===btn.dataset.s?'':btn.dataset.s;
         state.folds[id].status=next;
         syncStatusUI(id);
         renderList();
-        card.querySelector('.rv-saved').textContent='שומר…';
+        card.querySelector('.rv-saved').textContent=tx.saving;
         queueSave();
       });
+      group.appendChild(btn);
     });
     els[id]=card;
     return card;
@@ -192,17 +274,19 @@
     return map;
   }
 
-  function refreshBadges(){
+  function refreshHeads(){
     var nums=siteNumbers();
     document.querySelectorAll('.rv-slot').forEach(function(slot){
       var id=slot.dataset.fold;
-      var b=slot.querySelector('.rv-badge');
-      if(b)b.textContent=String(nums[id]||'');
+      var n=nums[id]||'';
+      var num=slot.querySelector('.rv-num');
+      if(num)num.textContent=String(n);
+      var title=slot.querySelector('.rv-title');
+      if(title)title.textContent=titleOf(id);
       var card=els[id];
       if(card){
-        var n=nums[id];
-        card.querySelector('h3').textContent=n+'. '+titleOf(id);
-        card.querySelector('label').textContent='הערה על מקטע '+n;
+        var lab=card.querySelector('label');
+        if(lab)lab.textContent=tx.label(n);
       }
     });
   }
@@ -216,7 +300,7 @@
     if(!finals.length){
       var p=document.createElement('p');
       p.className='rv-empty';
-      p.textContent='עוד אין מקטעים בפנים. סמני «בפנים» ליד מקטע כדי להוסיף אותו לרשימת הסופיים. אפשר לשנות את הסדר כאן.';
+      p.textContent=tx.listEmpty;
       box.appendChild(p);
       return;
     }
@@ -225,10 +309,15 @@
       row.className='rv-li';
       row.draggable=true;
       row.dataset.id=id;
-      row.innerHTML='<span class="n"></span><span class="t"></span><span class="mv"><button type="button" data-d="-1" aria-label="למעלה">▲</button><button type="button" data-d="1" aria-label="למטה">▼</button></span>';
+      row.innerHTML='<span class="n"></span><span class="t"></span><span class="mv"><button type="button" data-d="-1"></button><button type="button" data-d="1"></button></span>';
       row.querySelector('.n').textContent=(i+1)+' · '+nums[id];
       row.querySelector('.t').textContent=titleOf(id);
-      row.querySelectorAll('.mv button').forEach(function(btn){
+      var btns=row.querySelectorAll('.mv button');
+      btns[0].setAttribute('aria-label',tx.up);
+      btns[0].textContent='▲';
+      btns[1].setAttribute('aria-label',tx.down);
+      btns[1].textContent='▼';
+      btns.forEach(function(btn){
         btn.addEventListener('click',function(){moveFinal(id,parseInt(btn.dataset.d,10))});
       });
       row.addEventListener('dragstart',function(e){
@@ -279,23 +368,33 @@
     var top=document.createElement('div');
     top.id='rv-top';
     top.innerHTML=
-      '<span class="rv-brand">סקירת האתר, מקטע־מקטע</span>'+
+      '<span class="rv-brand"></span>'+
       '<span class="rv-sync" id="rv-sync"></span>'+
-      '<button type="button" class="rv-btn" id="rv-toggle-ui">הסתר סקירה</button>'+
-      '<button type="button" class="rv-btn" id="rv-toggle-list">רשימת הסופיים</button>'+
-      '<button type="button" class="rv-btn p" id="rv-send-top">שלחי את ההערות</button>';
+      '<button type="button" class="rv-btn" id="rv-toggle-ui"></button>'+
+      '<button type="button" class="rv-btn" id="rv-toggle-list"></button>'+
+      '<button type="button" class="rv-btn p" id="rv-send-top"></button>';
+    top.querySelector('.rv-brand').textContent=tx.brand;
+    top.querySelector('#rv-toggle-ui').textContent=tx.hide;
+    top.querySelector('#rv-toggle-list').textContent=tx.finals;
+    top.querySelector('#rv-send-top').textContent=tx.send;
     document.body.insertBefore(top,document.body.firstChild);
+
+    var lead=document.createElement('p');
+    lead.id='rv-lead';
+    lead.textContent=tx.lead;
+    top.insertAdjacentElement('afterend',lead);
 
     var list=document.createElement('div');
     list.id='rv-list';
-    list.innerHTML='<h2>רשימת הסופיים</h2><p class="rv-empty" style="margin:0 0 10px">מקטעים שסומנו «בפנים», לפי הסדר שבחרת. אפשר לגרור או להזיז עם החיצים. הרשימה נשמרת אוטומטית.</p><div id="rv-list-body"></div>';
+    list.innerHTML='<h2></h2><p class="rv-empty" style="margin:0 0 10px"></p><div id="rv-list-body"></div>';
+    list.querySelector('h2').textContent=tx.listTitle;
+    list.querySelector('p').textContent=tx.listLead;
     document.body.appendChild(list);
 
     var send=document.createElement('button');
     send.id='rv-send';
-    send.className='rv-btn p';
-    send.textContent='שלחי את ההערות';
-    send.style.cssText='font:400 16px Heebo,system-ui,sans-serif;padding:14px 20px;border-radius:12px;border:1px solid #006EFF;background:#006EFF;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,110,255,.5)';
+    send.type='button';
+    send.textContent=tx.send;
     send.addEventListener('click',sendAll);
     document.body.appendChild(send);
 
@@ -305,7 +404,7 @@
     });
     document.getElementById('rv-toggle-ui').addEventListener('click',function(){
       var hide=document.documentElement.classList.toggle('review-hide');
-      this.textContent=hide?'הצג סקירה':'הסתר סקירה';
+      this.textContent=hide?tx.show:tx.hide;
     });
   }
 
@@ -324,9 +423,16 @@
     if(n){n.textContent=msg;n.style.color=ok===false?'#ff8a9a':'#8AD2FF'}
   }
 
+  function markCards(text){
+    Object.keys(els).forEach(function(id){
+      var s=els[id].querySelector('.rv-saved');
+      if(s)s.textContent=text;
+    });
+  }
+
   function pushState(){
     saving=true;
-    setSync('שומר…');
+    setSync(tx.saving);
     var body=JSON.stringify({
       deck:DECK,
       client:localStorage.getItem('shani-v12-cid')||'',
@@ -340,19 +446,14 @@
         return r.json();
       })
       .then(function(d){
-        Object.keys(els).forEach(function(id){
-          var s=els[id].querySelector('.rv-saved');
-          if(s)s.textContent=d.github?'נשמר (וגם ב-GitHub)':'נשמר';
-        });
-        setSync(d.github?'נשמר · GitHub':'נשמר',true);
+        var msg=d.repo||d.github?tx.savedGh:tx.saved;
+        markCards(msg);
+        setSync(msg,true);
         return d;
       })
       .catch(function(){
-        Object.keys(els).forEach(function(id){
-          var s=els[id].querySelector('.rv-saved');
-          if(s)s.textContent='נשמר במכשיר זה';
-        });
-        setSync(ACCESS?'לא נשמר בשרת — נשמר במכשיר':'נשמר במכשיר (אין מפתח סקירה בכתובת)',false);
+        markCards(tx.savedLocal);
+        setSync(ACCESS?tx.notServer:tx.notServerNoKey,false);
       })
       .finally(function(){saving=false});
   }
@@ -372,11 +473,11 @@
           state=mergeState(state,remote);
           applyStateToUI();
           saveLocal(state);
-          setSync('נטען מהשמירה',true);
+          setSync(tx.loaded,true);
         }
       })
       .catch(function(){
-        setSync(ACCESS?'עובד מקומית':'עובד מקומית (אין מפתח בכתובת)');
+        setSync(ACCESS?tx.local:tx.localNoKey);
       });
   }
 
@@ -387,7 +488,7 @@
       if(ta&&ta.value!==(f.comment||''))ta.value=f.comment||'';
       syncStatusUI(id);
     });
-    refreshBadges();
+    refreshHeads();
     renderList();
   }
 
@@ -397,19 +498,19 @@
     state.order.forEach(function(id){
       var f=state.folds[id];
       if(!f)return;
-      var st=f.status==='in'?'בפנים':f.status==='out'?'בחוץ':f.status==='fix'?'תיקון':'לא סומן';
+      var st=f.status==='in'?tx.inn:f.status==='out'?tx.out:f.status==='fix'?tx.fix:'';
       if(!((f.comment||'').trim())&&!f.status)return;
-      lines.push('מקטע '+nums[id]+', '+titleOf(id)+' ['+st+']:\n'+(f.comment||'').trim());
+      lines.push((lang==='he'?'מקטע ':'Section ')+nums[id]+', '+titleOf(id)+(st?' ['+st+']':'')+':\n'+(f.comment||'').trim());
     });
     var finals=currentFinals().map(function(id,i){return (i+1)+'. ('+nums[id]+') '+titleOf(id)}).join('\n');
-    var body=(lines.join('\n\n')||'אין הערות.')+'\n\nרשימת הסופיים:\n'+(finals||'(ריקה)')+'\n\n'+location.href;
+    var body=(lines.join('\n\n')||(lang==='he'?'אין הערות.':'No comments yet.'))+'\n\n'+(lang==='he'?'רשימת הסופיים:':'Final list:')+'\n'+(finals||(lang==='he'?'(ריקה)':'(empty)'))+'\n\n'+location.href;
     return {lines:lines,body:body,finals:currentFinals()};
   }
 
   function sendAll(){
     var payload=sendBody();
     var btns=[document.getElementById('rv-send'),document.getElementById('rv-send-top')];
-    btns.forEach(function(b){if(b){b.disabled=true;b.textContent='שולחת…'}});
+    btns.forEach(function(b){if(b){b.disabled=true;b.textContent=tx.sending}});
     if(navigator.clipboard&&navigator.clipboard.writeText){
       navigator.clipboard.writeText(payload.body).catch(function(){});
     }
@@ -428,12 +529,12 @@
     })})
       .then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json()})
       .then(function(){
-        btns.forEach(function(b){if(b){b.disabled=false;b.textContent='נשלח'}});
-        setSync('נשלח',true);
+        btns.forEach(function(b){if(b){b.disabled=false;b.textContent=tx.sent}});
+        setSync(tx.sent,true);
       })
       .catch(function(){
-        location.href='mailto:gitter.omri@gita-agency.com?subject='+encodeURIComponent('הערות לסקירת האתר של שני, v12')+'&body='+encodeURIComponent(payload.body);
-        btns.forEach(function(b){if(b){b.disabled=false;b.textContent='שלחי את ההערות'}});
+        location.href='mailto:gitter.omri@gita-agency.com?subject='+encodeURIComponent(tx.mailSubject)+'&body='+encodeURIComponent(payload.body);
+        btns.forEach(function(b){if(b){b.disabled=false;b.textContent=tx.send}});
       });
   }
 
@@ -443,8 +544,8 @@
 
   makeChrome();
   wrapMains();
-  refreshBadges();
+  refreshHeads();
   renderList();
-  setSync(ACCESS?'מתחבר לשמירה…':'נשמר במכשיר (הוסיפי מפתח לכתובת לסינכרון)');
+  setSync(ACCESS?tx.connecting:tx.noKey);
   pullState();
 })();
