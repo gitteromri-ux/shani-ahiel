@@ -21,7 +21,7 @@ D['en']['svc']=[
 X['he']['sv_h']=D['he']['sv_h'];X['en']['sv_h']=D['en']['sv_h']
 
 META=json.load(open('img/meta.json'))
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11b'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11c'
 VPH['shishi']=[n for n in VPH['shishi'] if not n.startswith('band')]
 # dark venue marks for the light catalog
 VLOGO={'yafo':'yafo.png','shishi':'shishi.png','selina':'selina.png'}

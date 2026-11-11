@@ -419,3 +419,7 @@ body:has(.stick.hide) .fa-wa{bottom:calc(18px + env(safe-area-inset-bottom))}
 }
 .hd.glass h2,.phd.glass h2,.hti.glass h2,.prt.glass h2,
 .hd.glass .sub,.phd.glass .big,.phd.glass .facts{position:static;display:block;width:auto;max-width:100%}
+
+/* section headings always take the full measure, no shrink-wrap */
+.hd,.phd{display:grid;width:100%;max-width:100%;box-sizing:border-box;min-width:0}
+.hd h2,.phd h2,.hd .sub,.phd .big,.phd .facts{position:static;max-width:100%}
