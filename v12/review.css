@@ -1,0 +1,269 @@
+/* v12 review-mode chrome. All rules are under html.review-on so the public view is unchanged. */
+html.review-on{scroll-padding-top:86px}
+html.review-on body{padding-top:0}
+
+.rv-slot{display:contents}
+html.review-on .rv-slot{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) min(380px,34vw);
+  gap:22px 28px;
+  align-items:start;
+  padding:18px 22px 28px;
+  border-top:1px solid rgba(255,255,255,.08);
+  background:#06122B;
+}
+html.review-on .rv-slot.rv-chrome{
+  grid-template-columns:minmax(0,1fr) min(380px,34vw);
+}
+html.review-on .rv-fold{
+  min-width:0;
+  background:var(--ivory,#faf7f0);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  position:relative;
+}
+html.review-on .rv-fold > .hero,
+html.review-on .rv-fold > .sec,
+html.review-on .rv-fold > .erupt{border-radius:0}
+
+.rv-badge{
+  display:none;
+}
+html.review-on .rv-badge{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  top:14px;
+  inset-inline-start:14px;
+  z-index:8;
+  min-width:52px;
+  height:52px;
+  padding:0 12px;
+  border-radius:999px;
+  background:#08152D;
+  color:#8AD2FF;
+  font:600 22px/1 Fraunces,Georgia,serif;
+  font-style:italic;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  pointer-events:none;
+}
+
+.rv-card{display:none}
+html.review-on .rv-card{
+  display:block;
+  position:sticky;
+  top:90px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  padding:18px 18px 16px;
+  color:#F3EBDD;
+  font-family:Heebo,system-ui,sans-serif;
+  direction:rtl;
+  text-align:right;
+  box-shadow:0 16px 40px rgba(0,0,0,.28);
+}
+.rv-card h3{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  line-height:1.2;
+  margin:0 0 6px;
+  color:#F3EBDD;
+}
+.rv-card .rv-k{
+  display:block;
+  font-size:12px;
+  letter-spacing:.08em;
+  color:#9DB3D6;
+  margin-bottom:10px;
+}
+.rv-card textarea{
+  width:100%;
+  min-height:150px;
+  resize:vertical;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;
+  background:rgba(6,18,43,.7);
+  color:#F3EBDD;
+  font:300 16px/1.5 Heebo,system-ui,sans-serif;
+  padding:12px 14px;
+  box-sizing:border-box;
+}
+.rv-card textarea:focus{
+  outline:none;
+  border-color:#006EFF;
+  box-shadow:0 0 0 3px rgba(0,110,255,.25);
+}
+.rv-card textarea::placeholder{color:#8aa0c0}
+.rv-status{
+  display:flex;
+  gap:6px;
+  margin:12px 0 8px;
+  flex-wrap:wrap;
+}
+.rv-status button{
+  flex:1;
+  min-width:76px;
+  font:500 14px/1 Heebo,system-ui,sans-serif;
+  padding:10px 8px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+  color:#D6DEEC;
+  cursor:pointer;
+}
+.rv-status button[aria-pressed="true"][data-s="in"]{
+  background:#1f6b4a;border-color:#3ad89a;color:#fff;
+}
+.rv-status button[aria-pressed="true"][data-s="out"]{
+  background:#6b1f2a;border-color:#ff8a9a;color:#fff;
+}
+.rv-status button[aria-pressed="true"][data-s="fix"]{
+  background:#F6DC8C;border-color:#F6DC8C;color:#06142a;
+}
+.rv-saved{font-size:13px;color:#8AD2FF;min-height:18px;margin-top:6px}
+
+#rv-top{
+  display:none;
+}
+html.review-on #rv-top{
+  display:flex;
+  position:sticky;
+  top:0;
+  z-index:80;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 16px;
+  background:rgba(6,18,43,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  color:#F3EBDD;
+  font-family:Heebo,system-ui,sans-serif;
+  direction:rtl;
+}
+#rv-top .rv-brand{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:20px;
+  margin-inline-end:auto;
+  color:#F3EBDD;
+}
+#rv-top .rv-btn{
+  font:400 14px/1 Heebo,system-ui,sans-serif;
+  padding:10px 16px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+}
+#rv-top .rv-btn.p{
+  background:#006EFF;
+  border-color:#006EFF;
+  box-shadow:0 0 30px rgba(0,110,255,.45);
+}
+#rv-top .rv-sync{font-size:12px;color:#8AD2FF;min-width:8em}
+
+#rv-list{
+  display:none;
+  position:fixed;
+  top:70px;
+  inset-inline-start:16px;
+  width:min(380px,calc(100vw - 32px));
+  max-height:calc(100vh - 100px);
+  overflow:auto;
+  z-index:85;
+  background:#08152D;
+  color:#F3EBDD;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:16px;
+  direction:rtl;
+  font-family:Heebo,system-ui,sans-serif;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+#rv-list.open{display:block}
+#rv-list h2{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:22px;
+  margin:0 0 8px;
+}
+#rv-list .rv-empty{color:#9DB3D6;font-size:14px;line-height:1.5}
+.rv-li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 8px;
+  border-top:1px solid rgba(255,255,255,.08);
+  cursor:grab;
+}
+.rv-li:active{cursor:grabbing}
+.rv-li .n{
+  color:#8AD2FF;
+  font:600 18px/1 Fraunces,Georgia,serif;
+  font-style:italic;
+  min-width:1.6em;
+}
+.rv-li .t{flex:1;font-size:15px}
+.rv-li .mv{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.rv-li .mv button{
+  border:0;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-radius:6px;
+  cursor:pointer;
+  width:28px;
+  height:22px;
+  font-size:12px;
+}
+
+#rv-send{
+  display:none;
+}
+html.review-on #rv-send{
+  display:block;
+  position:fixed;
+  inset-inline-start:20px;
+  bottom:calc(20px + env(safe-area-inset-bottom));
+  z-index:82;
+}
+
+html.review-on.review-hide .rv-slot,
+html.review-on.review-hide .rv-fold{display:contents;padding:0;border:0;background:transparent;box-shadow:none;overflow:visible;border-radius:0}
+html.review-on.review-hide .rv-card,
+html.review-on.review-hide .rv-badge,
+html.review-on.review-hide #rv-list,
+html.review-on.review-hide #rv-send{display:none !important}
+html.review-on.review-hide #rv-top{opacity:.92}
+
+html.review-on .stick{z-index:55}
+html.review-on .fa-wa{z-index:70}
+
+@media (max-width:900px){
+  html.review-on .rv-slot,
+  html.review-on .rv-slot.rv-chrome{
+    grid-template-columns:1fr;
+    padding:12px 12px 18px;
+    gap:12px;
+  }
+  html.review-on .rv-card{position:static}
+  html.review-on .rv-fold{border-radius:14px}
+  #rv-top .rv-brand{font-size:16px;width:100%;margin:0 0 4px}
+  .rv-card textarea{min-height:120px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.review-on *{transition:none !important}
+}
