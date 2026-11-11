@@ -85,8 +85,8 @@ html[dir=ltr] .hs[data-hero=curtain] img{object-position:22% 48%}
 .hnav{display:grid;gap:8px;justify-items:end;min-width:180px}
 .hcap{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(250,247,240,.72);backdrop-filter:blur(10px) saturate(1.3);-webkit-backdrop-filter:blur(10px) saturate(1.3);padding:4px 10px;border-radius:99px}
 .hdots{display:flex;gap:7px;align-items:center}
-.hd{width:8px;height:8px;border-radius:99px;background:rgba(26,23,18,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);transition:width .45s var(--out),background .35s,box-shadow .35s}
-.hd.on{width:26px;background:var(--gold);box-shadow:0 0 0 1px rgba(255,255,255,.55)}
+.hdot{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(26,23,18,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);transition:width .45s var(--out),background .35s,box-shadow .35s;cursor:pointer}
+.hdot.on{width:26px;background:var(--gold);box-shadow:0 0 0 1px rgba(255,255,255,.55)}
 .ri{opacity:0;transform:translateY(18px);animation:ri 1s var(--out) forwards}
 .hcopy .ri:nth-child(2){animation-delay:.1s}.hcopy .ri:nth-child(3){animation-delay:.2s}.hcopy .ri:nth-child(4){animation-delay:.28s}.hcopy .ri:nth-child(5){animation-delay:.36s}
 @keyframes ri{to{opacity:1;transform:none}}
@@ -421,5 +421,5 @@ body:has(.stick.hide) .fa-wa{bottom:calc(18px + env(safe-area-inset-bottom))}
 .hd.glass .sub,.phd.glass .big,.phd.glass .facts{position:static;display:block;width:auto;max-width:100%}
 
 /* section headings always take the full measure, no shrink-wrap */
-.hd,.phd{display:grid;width:100%;max-width:100%;box-sizing:border-box;min-width:0}
+.hd,.phd{display:grid;width:100%;max-width:100%;height:auto;overflow:visible;box-sizing:border-box;min-width:0}
 .hd h2,.phd h2,.hd .sub,.phd .big,.phd .facts{position:static;max-width:100%}

@@ -21,7 +21,7 @@ D['en']['svc']=[
 X['he']['sv_h']=D['he']['sv_h'];X['en']['sv_h']=D['en']['sv_h']
 
 META=json.load(open('img/meta.json'))
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11c'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v11/";CV='11d'
 VPH['shishi']=[n for n in VPH['shishi'] if not n.startswith('band')]
 # dark venue marks for the light catalog
 VLOGO={'yafo':'yafo.png','shishi':'shishi.png','selina':'selina.png'}
@@ -100,7 +100,7 @@ def scripts(root):
 def index(lang):
     L=D[lang];Y=X[lang];V=U[lang];root='' if lang=='he' else '../';path='' if lang=='he' else 'en/';alt='en/' if lang=='he' else '';ar='←' if lang=='he' else '→'
     slides=''.join(f'<div class="hs{" on" if k==0 else ""}" data-hero="{n}">{heropic(n,root,eager=True)}</div>' for k,n in enumerate(HERO))
-    hbars=''.join(f'<button class="hd{" on" if k==0 else ""}" aria-label="{HCAP[lang][k]}"></button>' for k in range(len(HERO)))
+    hbars=''.join(f'<button class="hdot{" on" if k==0 else ""}" aria-label="{HCAP[lang][k]}"></button>' for k in range(len(HERO)))
     stats=''.join(f'<div class="st"><b dir="ltr">'+(f'<span class="pre">{p}</span>' if p else '')+f'<span data-count="{n}">{n}</span></b><span>{t}</span></div>' for n,p,t in L['stats'])
     pw,pj=srcs('portrait-c',root)
     cred=' · '.join(Y['cred'])

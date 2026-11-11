@@ -21,7 +21,7 @@ const reveal=()=>{
 if(document.readyState==='complete')reveal();else addEventListener('load',reveal);
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,n=+el.dataset.count;if(RM)return;const t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.5});$$('[data-count]').forEach(el=>cio.observe(el));
 /* hero slides — crossfade, preloaded, pause on hover/touch */
-const hs=$$('.hs'),hd=$$('.hd'),hcap=$('.hcap'),caps=JSON.parse($('.hcaps')?.textContent||'[]');
+const hs=$$('.hs'),hd=$$('.hdot'),hcap=$('.hcap'),caps=JSON.parse($('.hcaps')?.textContent||'[]');
 let hi=0,ht,hpaused=0;
 const arm=()=>{clearTimeout(ht);if(!RM&&!hpaused&&hs.length>1)ht=setTimeout(()=>go(hi+1),5500)};
 const go=k=>{if(!hs.length)return;const next=(k+hs.length)%hs.length;if(next===hi)return;
