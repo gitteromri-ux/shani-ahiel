@@ -473,10 +473,9 @@ html[lang=en] .prose .dek{font-weight:400}
   .sl[data-desk] .trk{display:grid;overflow:visible;margin-inline:0;padding-inline:0;cursor:auto;scroll-snap-type:none}
   .sl[data-desk] .trk>*{width:auto!important}
   .sl[data-desk] .slc-ui{display:none}
-  .sl[data-desk=grid4] .trk{grid-template-columns:repeat(4,1fr);gap:0}
+  .sl[data-desk=grid4] .trk{grid-template-columns:repeat(4,1fr);gap:0;margin-inline:calc(-1 * clamp(18px,1.8vw,30px))}
   .sl[data-desk=grid4] .tier{padding-inline:clamp(18px,1.8vw,30px);border-inline-start:1px solid var(--line)}
-  .sl[data-desk=grid4] .tier:first-child{padding-inline-start:0;border-inline-start:0}
-  .sl[data-desk=grid4] .tier:last-child{padding-inline-end:0}
+  .sl[data-desk=grid4] .tier:first-child{border-inline-start:0}
   .sl[data-desk=grid3] .trk{grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px)}
   .sl[data-desk=grid2] .trk{grid-template-columns:repeat(2,1fr);gap:clamp(24px,3vw,48px)}
   .s-vf .vf:nth-child(2){margin-top:clamp(48px,6vw,96px)}

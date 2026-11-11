@@ -3,7 +3,7 @@
 import json,urllib.parse,os,html as H
 _src=open('build11.py').read().split("\ndef index(")[0]
 _ns={};exec(_src,_ns);globals().update({k:v for k,v in _ns.items() if not k.startswith('__')})
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v14/";CV='14c'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v14/";CV='14d'
 H1={'he':['להקים.','לייצב.','לפתח.'],'en':['Build.','Stabilize.','Grow.']}
 # Shani confirmed in the group (Nov 11): the venue is "Ofra"
 for lg in ('he','en'):
