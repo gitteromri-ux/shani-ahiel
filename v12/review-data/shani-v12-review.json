@@ -1,7 +1,26 @@
 {
   "deck": "shani-v12",
-  "client": "",
-  "folds": {},
-  "order": [],
-  "updated": ""
+  "client": "e2e-12c",
+  "folds": {
+    "hero": {
+      "title": "Hero",
+      "comment": "E2E-TEST-12c-1794387952",
+      "status": "fix"
+    }
+  },
+  "order": [
+    "hero",
+    "profile",
+    "services",
+    "erupt",
+    "hotels",
+    "process",
+    "press",
+    "venues",
+    "journal",
+    "contact",
+    "stick",
+    "wa"
+  ],
+  "updated": "2026-11-11T09:05:52Z"
 }
