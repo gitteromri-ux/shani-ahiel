@@ -133,7 +133,7 @@ html[lang=en] .hero h1 .l3{font-style:italic}
 .hero .lead{font-size:min(clamp(17px,1.3cqi,19.5px),2.3vh);line-height:1.6;color:var(--ink);max-width:36em}
 .hero .cta{display:flex;align-items:center;gap:28px;margin-top:clamp(18px,1.9cqi,28px);flex-wrap:wrap}
 .hnav{display:flex;align-items:center;gap:16px;margin-top:clamp(18px,1.8cqi,26px);padding-top:14px;border-top:1px solid var(--line)}
-.hcount{font:500 14px/1 var(--num);letter-spacing:.12em;color:var(--mute);flex:none}
+.hcount{font:500 14px/1 var(--num);letter-spacing:.12em;color:var(--ink2);flex:none}
 .hcount b{color:var(--ink);font-weight:600}
 .hdots{display:flex;gap:6px;flex:none}
 .hdot{position:relative;width:34px;height:20px;display:block}
@@ -141,7 +141,7 @@ html[lang=en] .hero h1 .l3{font-style:italic}
 .hdot i::after{content:"";position:absolute;inset:0;background:var(--ox);transform-origin:left;transform:scaleX(0)}
 html[dir=rtl] .hdot i::after{transform-origin:right}
 .hdot.on i::after{transform:scaleX(var(--p,0))}
-.hcap{font-size:13.5px;letter-spacing:.06em;color:var(--mute);margin-inline-start:auto;text-align:end;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.hcap{font-size:13.5px;letter-spacing:.06em;color:var(--ink2);margin-inline-start:auto;text-align:end;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 /* stats strip */
 .hstats{display:grid;grid-template-columns:1.35fr repeat(4,1fr);max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);min-height:118px;width:100%;flex:none}
 .hstats li{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:20px 26px;border-inline-start:1px solid var(--line)}
@@ -344,7 +344,7 @@ html[lang=en] .vn{font-weight:400}
 .vs .vp{font-size:16px}
 .vs .soon{margin-top:auto;padding-top:22px;font:italic 400 17px/1.4 "Cormorant Garamond","Frank Ruhl Libre",serif;color:var(--mute)}
 html[lang=he] .vs .soon{font:400 15px/1.4 var(--sans);font-style:normal}
-.vs .vl{position:absolute;top:30px;inset-inline-end:30px;height:26px;width:auto;opacity:.8}
+.vs .vl{display:none}
 
 /* JOURNAL ------------------------------------------------------------------ */
 .s-jr .trk>.jc{width:min(80vw,400px)}
