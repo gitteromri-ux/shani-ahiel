@@ -3,7 +3,7 @@
 import json,urllib.parse,os,html as H
 _src=open('build11.py').read().split("\ndef index(")[0]
 _ns={};exec(_src,_ns);globals().update({k:v for k,v in _ns.items() if not k.startswith('__')})
-BASE="https://gitteromri-ux.github.io/shani-ahiel/v14/";CV='14b'
+BASE="https://gitteromri-ux.github.io/shani-ahiel/v14/";CV='14c'
 H1={'he':['להקים.','לייצב.','לפתח.'],'en':['Build.','Stabilize.','Grow.']}
 # Shani confirmed in the group (Nov 11): the venue is "Ofra"
 for lg in ('he','en'):
@@ -101,8 +101,8 @@ def index(lang):
   <figure class="pport rv"><span class="frame"></span>{pic('portrait',root,"(max-width:900px) 86vw, 520px",L['brand'])}<figcaption>{L['brand']} · Berlin</figcaption></figure>
  </div>
  <div class="path"><div class="mhd"><h3 class="rv">{V['story']}</h3></div>{slider(tcards,'s-tl','',V['story'],'ol')}</div>
-</div></section>
-<section class="sec stone rail" aria-label="{Y['mo_h']}"><div class="w"><div class="mhd2"><h2 class="rv">{Y['mo_h']}</h2><p class="rv">{Y['mo_p']}</p></div></div>{slider(mos,'s-mo','',Y['mo_h'])}</section>
+</div>
+<div class="stone rail" aria-label="{Y['mo_h']}"><div class="w"><div class="mhd2"><h2 class="rv">{Y['mo_h']}</h2><p class="rv">{Y['mo_p']}</p></div></div>{slider(mos,'s-mo','',Y['mo_h'])}</div></section>
 <section class="sec ivory services" id="services"><div class="w"><div class="hd">{eb('02',Y['sv_l'])}<h2 class="rv">{Y['sv_h']}</h2><p class="sub rv">{L['sv_p']}</p></div>{slider(svc,'s-svc','grid4',Y['sv_l'])}</div></section>
 <section class="erupt" id="erupt" aria-label="quote"><div class="eruph" data-par>{pic('yafo-full',root,"100vw")}</div><div class="w"><blockquote class="eq glass"><span class="qm" aria-hidden="true">“</span><p>{L["quote"].strip('״“”"')}</p><cite>{L["quote_s"]}</cite></blockquote></div></section>
 <section class="sec paper hotels" id="hotels"><div class="w hrow"><figure class="hv" data-par><span class="frame"></span>{pic('tasting',root,"(max-width:900px) 100vw, 56vw")}</figure><div class="hti">{eb('03',L['os_l'])}<h2 class="rv">{L['os_h']}</h2><p class="rv">{L['os_p']}</p><ul class="rv">{ospts}</ul>{btn(L['cta1'],'#contact','solid')}</div></div></section>
